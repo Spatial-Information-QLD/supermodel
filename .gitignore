@@ -1,3 +1,7 @@
+venv/
+
+dist/
+
 *.html
 
 .DS_Store

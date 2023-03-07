@@ -5,6 +5,8 @@
 
 This document is both the front page of the Spatial Information Queensland Supermodel's repository and a _Guidance document_ that introduces all the other elements of this Supermodel.
 
+To contribute to this document, see link:editing.adoc[] on how to set up the editing environment.
+
 == Metadata
 
 [width=75%, frame=none, grid=none, cols="1,5"]
@@ -22,14 +24,14 @@ This document is both the front page of the Spatial Information Queensland Super
 
 == Components
 
-* https://nicholascar.com/qsi-supermodel/supermodel.html[Specification]
-* https://nicholascar.com/qsi-supermodel/backbone/model.ttl[Backbone Model]
+* link:supermodel.html[Specification]
+* link:backbone/model.ttl[Backbone Model]
 ** machine-readable version
 * https://w3id.org/profile/anz-address[Address Model]
 ** external to this Supermodel
 * https://w3id.org/profile/qsi-placenames[Place Names Model]
 ** defined within this Supermodel
-* https://nicholascar.com/qsi-supermodel/supermodel.html#_qsi_cadastral_model[Cadastre Model]
+* link:supermodel.html#_qsi_cadastral_model[Cadastre Model]
 ** defined within this Supermodel
 
 // == Introduction

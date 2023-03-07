@@ -1,0 +1,73 @@
+= Setting up the editing environment
+
+As an editor of this document, first thing to do is to install the required dependencies in order to set up the editing environment.
+
+== Required dependencies
+
+=== asciidoctor
+
+For details on the different ways to install asciidoctor, please see https://asciidoctor.org/#installation. Otherwise, continue reading the next few sections on how to install asciidoctor on Windows and macOS.
+
+==== Windows
+
+The recommended way to install asciidoctor on Windows is by installing Ruby first via the https://chocolatey.org/[chocolatey package manager]. Once chocolatey is installed, open PowerShell and type:
+
+----
+choco install ruby
+----
+
+Now that Ruby is installed, install asciidoctor with the gem package manager.
+
+----
+gem install asciidoctor
+----
+
+You should now be able to run `asciidoctor` in PowerShell.
+
+==== macOS and Linux
+
+The recommended way to install asciidoctor on macOS or a Linux distribution is via the https://brew.sh/[Homebrew (brew) package manager]. Once brew is installed, open a terminal and type:
+
+----
+brew install asciidoctor
+----
+
+You should now be able to run `asciidoctor` in the terminal.
+
+== Optional dependencies
+
+* Python version 3+
+
+=== Working with optional dependencies
+
+With Python installed, as you are editing, you can set it up to auto-compile asciidoc documents on change and see it rendered live in a browser.
+
+Create a python virtual environment and install watchdog and httpwatcher.
+
+----
+python -m venv venv
+source venv/bin/activate
+pip install watchdog git+https://github.com/thanethomson/httpwatcher.git@dev
+----
+
+=== The editing environment
+
+Ensure a python virtual environment is set up and activated with the dependencies installed.
+
+Use this repository's `Makefile` to start the file watcher in the terminal.
+
+----
+make watch
+----
+
+This will transpile all *.adoc files in this repository to static web files in `dist/`.
+
+In a separate terminal, start the hot-reloading http web server.
+
+----
+make http
+----
+
+This will watch the `dist/` directory and hot-reload the web page using websockets.
+
+Try and edit a file ending in `.adoc` and see the web page update live at http://127.0.0.1:8000.
