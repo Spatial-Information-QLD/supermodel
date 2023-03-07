@@ -1,0 +1,40 @@
+PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://w3id.org/profile/qsi-supermodel/qsi-placenames>
+    a owl:Ontology , prof:Profile ;
+    dcterms:provenance "This ontology was made for the Queensland Department of Resources, Spatial Information unit to assist with future Address database design."@en ;
+    owl:versionIRI addr:0.0.1 ;
+    owl:versionInfo "0.0.1" ;
+    skos:definition "This model is a Semantic Web data model used for Place Names. It caters specifically for Queensland's Place Naming needs. It is a profile of the Australian Place Names Ontology and the ANZ Address Model that declares no new objects."@en ;
+    skos:prefLabel " QSI Place Names Model"@en ;
+    sdo:codeRespository "https://github.com/nicholascar/qsi-supermodel/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:dateCreated "2022-06-24"^^xsd:date ;
+    sdo:dateIssued "2000-01-01"^^xsd:date ;
+    sdo:dateModified "2022-06-24"^^xsd:date ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:publisher <https://orcid.org/0000-0002-8742-7730> ;
+    prof:isProfileOf 
+        <https://linked.data.gov.au/def/placenames> ,
+        <https://w3id.org/profile/anz-address> ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+.
+

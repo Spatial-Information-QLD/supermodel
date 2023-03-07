@@ -1,0 +1,179 @@
+PREFIX bb: <https://w3id.org/profile/qsi-backbone/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dwc: <http://rs.tdwg.org/dwc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX skosxl: <http://www.w3.org/2008/05/skos-xl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://w3id.org/profile/qsi-backbone>
+    a owl:Ontology ;
+    dcterms:provenance """This ontology was made for the Queensland Department of Resources, Spatial Information unit to assist with the itegration of data from several traditionally seperate areas of their concern: Addressing, Cadastre, Place Naming etc. It mostly reuses elements from those models and only defines one new class in detail - FeatureLabel - and placeholders for several other classes expected to be redefined n future component models - AdministrativeArea, Title etc.
+    
+    This model is part of the QSI Supermodel."""@en ;
+    owl:versionIRI addr:0.0.1 ;
+    owl:versionInfo "0.0.1" ;
+    skos:definition "This model is a Semantic Web data model used for the itegration of data from the Queensland Department of Resources's Addressing, Cadastral and other systems."@en ;
+    skos:prefLabel "QSI Backbone Model"@en ;
+    sdo:codeRespository "https://github.com/nicholascar/qsi-supermodel/"^^xsd:anyURI ;
+    sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
+    sdo:creator <https://orcid.org/0000-0002-8742-7730> ;
+    sdo:dateCreated "2022-06-02"^^xsd:date ;
+    sdo:dateIssued "2022-16-15"^^xsd:date ;
+    sdo:dateModified "2022-04-27"^^xsd:date ;
+    sdo:license "https://creativecommons.org/licenses/by/4.0/"^^xsd:anyURI ;
+    sdo:publisher <https://orcid.org/0000-0002-8742-7730> ;
+.
+
+<https://orcid.org/0000-0002-8742-7730>
+    a sdo:Person ;
+    sdo:name "Nicholas J. Car"@en ;
+    sdo:email "nick@kurrawong.net"^^xsd:anyURI ;
+.
+
+bb:FeatureLabel
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    dcterms:provenance "Created for this Backbone Model"@en ;
+    skos:definition """Represents a complex label for a spatial Feature"""@en ;
+    skos:scopeNote "This class is expected to be subclassed for use into more concrete forms of Feature Lable, such as Address or Place Name"@en ;
+    skos:example """ex:address-1
+    a addr:Address , bb:FeatureLabel ;
+ .""@en ;
+    skos:prefLabel "Feature Label"@en ;
+.
+
+addr:Address
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/anz-address> ;
+    rdfs:subClassOf bb:FeatureLabel ;
+    dcterms:provenance "Derived from ISO19160-1's Address class"@en ;
+    skos:definition """The Address class represents structured information that allows unambiguous determination of an object for the purposes of identification and location"""@en ;
+    skos:prefLabel "Address"@en ;
+.
+
+bb:AdministrativeArea
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf bb:FeatureLabel ;
+    dcterms:provenance "Defined as a placeholder only within this Backbone Model"@en ;
+    skos:definition """An Administrative Area is a Feature definined for human purposes. It need not correspond to a single natural world feature"""@en ;
+    skos:example """ex:aa-1
+    a bb:AdministrativeArea ;
+    rdfs:label "The Great Barrier Reef" ;
+.
+
+ex:aa-2
+    a bb:AdministrativeArea ;
+    rdfs:label "Southbank" ;
+.
+"""@en ;
+    skos:prefLabel "Administrative Area"@en ;
+.
+
+<https://linked.data.gov.au/def/placenames/PlaceName>
+    a owl:Class ;
+    rdfs:isDefinedBy <https://linked.data.gov.au/def/placenames> ;
+    rdfs:subClassOf bb:FeatureLabel ;
+    dcterms:provenance "Defined by the Place Names Ontology for the National Composite Gazetteer of Australia"@en ;
+    skos:definition """A name associated with a geospatial place or feature.
+
+Additional properties are specified for the sub-class OfficialPlaceName which should be used for formal names"""@en ;
+    skos:example """ex:DH
+  rdf:type :PlaceName ;
+  :isIndigenous false ;
+  :name "The cubby house"@en ;
+  :placeNameOf ex:INF9987234 ;
+  :status :informal ;
+  :wasNamedBy <https://people.example.org/fagin> ;
+."""@en ;
+    skos:prefLabel "Place Name"@en ;
+.
+
+bb:Title
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf bb:FeatureLabel ;
+    dcterms:provenance "Defined as a placeholder only within this Backbone Model"@en ;
+    skos:definition """A Title is a named Property"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel "Title"@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+b
+    a owl:Class ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:subClassOf  ;
+    dcterms:provenance ""@en ;
+    skos:definition """"""@en ;
+    skos:example """"""@en ;
+    skos:prefLabel ""@en ;
+.
+
+
+addr:hasGeocode
+    a owl:ObjectProperty ;
+    rdfs:isDefinedBy <https://w3id.org/profile/qsi-backbone> ;
+    rdfs:domain  ;
+    rdfs:range  ;
+    dcterms:provenance ""@en ;
+    skos:definition ""@en ;
+    skos:scopeNote ""@en ;
+    skos:example """""" ;
+    skos:prefLabel ""@en ;
+.    

@@ -1,0 +1,87 @@
+# Haunted House example for the QSI Placenames Model
+
+PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ex: <http://example.com/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX isov1: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/>
+PREFIX isov2: <https://w3id.org/profile/anz-addres/AddressLifecycleStageType/>
+PREFIX pn: <http://linked.data.gov.au/def/placenames/>
+PREFIX time: <http://www.w3.org/2006/time#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+ex:haunted-house
+    a
+        pn:PlaceName ,
+        addr:Address ;
+    pn:name "Haounted House"@en ;
+    pn:placeNameOf ex:property-x ;
+    dcterms:provenance "The name Haunted House was assigned to this Place informally in the 1990 as children growing up near the house believed an apparition of a headless man resided there. The State officially recognised this name on Halloween in 1999."@en ;
+    addr:hasAddressComponent
+        [
+            dcterms:type isov1:streetLocality ;
+            addr:hasValue <https://linked.data.gov.au/dataset/gnaf/streetLocality/QLD140492> ;
+            addr:hasValueText "Oxford Place"
+        ] ,
+        [
+            dcterms:type isov1:locality ;
+            addr:hasValue <https://linked.data.gov.au/dataset/gnaf/locality/loc38f189794e03> ;
+            addr:hasValueText "Shorncliffe"
+        ] ,
+        [
+            dcterms:type isov1:administrativeArea ;
+            addr:hasValue <https://linked.data.gov.au/dataset/asgsed3/STE/3> ;
+            addr:hasValueText "Queensland"
+        ] ,
+        [
+            dcterms:type isov1:postcode ;
+            addr:hasValue 4017 ;
+            addr:hasValueText "4017"
+        ] ,
+        [
+            dcterms:provenance "The name Haunted House was assigned to this Place informally in the 1990 as children growing up near the house believed an apparition of a headless man resided there. The State officially recognised this name on Halloween in 1999."@en ;
+            dcterms:type isov1:placeName ;
+            addr:hasValue "Haunted House"@en ;
+            addr:hasValueText "Haunted House"
+        ] ,
+        [
+            dcterms:type isov1:numberFirst ;
+            addr:hasValue 20 ;
+            addr:hasValueText "20"
+        ] ;
+    addr:hasGeocode [
+            dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/geocodeType/PC> ;
+            geo:asWKT "POINT(153.08468369 -27.32703398)"^^geo:wktLiteral
+        ] ;
+    addr:hasLifecycleStage
+        [
+            dcterms:type isov2:proposed ;
+            time:hasTime [
+                    time:hasBeginning [
+                            time:inXSDgYear "1993"^^xsd:gYear
+                        ] ;
+                    time:hasEnd [
+                            time:inXSDDate "1999-10-31"^^xsd:date
+                        ]
+                ]
+        ] ,
+        [
+            pn:wasNamedBy ex:qld-state-government ;
+            dcterms:source "http://example.com/press-releases/minister-names-haounted-house"^^xsd:anyURI ;
+            dcterms:type isov2:current ;
+            time:hasTime [
+                    time:hasBeginning [
+                            time:inXSDDate "1999-10-31"^^xsd:date
+                        ]
+                ]
+        ] ;
+    addr:isAddressFor ex:property-x ;
+.
+
+ex:property-x
+    a pn:Place ;
+    geo:hasGeometry [
+            geo:asWKT "POINT(153.08468369 -27.32703398)"^^geo:wktLiteral
+        ] ;
+.
+

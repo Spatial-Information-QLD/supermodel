@@ -1,0 +1,74 @@
+PREFIX addr: <https://w3id.org/profile/anz-address/>
+PREFIX addrct: <http://w3id.org/profile/anz-address/address-component-type>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX ex: <http://example.com/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX isov1: <http://def.isotc211.org/iso19160/-1/2015/Address/code/AddressComponentType/>
+PREFIX pn: <http://linked.data.gov.au/def/placenames/>
+PREFIX pnc: <https://linked.data.gov.au/def/placenames-categories/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+ex:20-oxford-place
+    a addr:Address ;
+    addr:hasAddressComponent
+        [
+            dcterms:type addrct:placeName , pnc:LANDMARK ;
+            addr:hasValue "Haunted House"@en ;
+            addr:hasValueText "Haunted House" ;
+            dcterms:provenance "The name Haunted House was assigned to this Place informally in the 1990 as children growing up near the house believed an apparition of a headless man resided there. The State officially recognised this name on Halloween in 1999."@en ;            
+        ] ,
+        [
+            dcterms:type addrct:numberFirst ;
+            addr:hasValue 20 ;
+            addr:hasValueText "20"
+        ] ,
+        [
+            dcterms:type addrct:streetLocality ;
+            addr:hasValue <https://linked.data.gov.au/dataset/gnaf/streetLocality/QLD140492> ;
+            addr:hasValueText "Oxford Place"
+        ] ,
+        [
+            dcterms:type addrct:locality ;
+            addr:hasValue <https://linked.data.gov.au/dataset/gnaf/locality/loc38f189794e03> ;
+            addr:hasValueText "Shorncliffe"
+        ] ,
+        [
+            dcterms:type addrct:administrativeArea ;
+            addr:hasValue <https://linked.data.gov.au/dataset/asgsed3/STE/3> ;
+            addr:hasValueText "Queensland"
+        ] ,
+        [
+            dcterms:type isov1:postcode ;
+            addr:hasValue 4017 ;
+            addr:hasValueText "4017"
+        ] ;
+    addr:hasGeocode [
+            dcterms:type <https://linked.data.gov.au/dataset/gnaf/code/geocodeType/PC> ;
+            geo:asWKT "POINT(153.08468369 -27.32703398)"^^geo:wktLiteral
+        ] ;
+    addr:isAddressFor ex:property-x ;
+.
+
+ex:property-x
+    a addr:AddressableObject ;
+    geo:hasGeometry [
+            geo:asWKT "POLYGON ((153.0846659 -27.3268844, 153.0845532 -27.3269404, 153.0846914 -27.3271691, 153.0848081 -27.3271143, 153.0846659 -27.3268844))"^^geo:wktLiteral
+        ] ;
+.
+
+# another Address irrelevant for Place Naming
+ex:16-oxford-place
+    a addr:Address ;
+    addr:hasAddressComponent
+        [
+            dcterms:type addrct:streetLocality ;
+            addr:hasValue <https://linked.data.gov.au/dataset/gnaf/streetLocality/QLD140492> ;
+            addr:hasValueText "Oxford Place"
+        ] ,
+        [
+            dcterms:type addrct:numberFirst ;
+            addr:hasValue 16 ;
+            addr:hasValueText "16"
+        ] ;
+.
