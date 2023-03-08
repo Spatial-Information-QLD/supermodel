@@ -75,7 +75,7 @@ For technical use, the machine-readable versions of the Backbone Model and the C
 
 === Backbone Model
 
-The Backbone Model for this Queensland Spatial Information scenario overviewed in <<#fig-backbone, Figure 3>>. The elements of the Backbone Model are described next and the formal characterisation of the model in OWL is given in the machein-readable file https://nicholascar.com/qsi-supermodel/backbone.ttl[backbone.ttl].
+The Backbone Model for this Queensland Spatial Information scenario overviewed in <<#fig-backbone, Figure 3>>. The elements of the Backbone Model are described next and the formal characterisation of the model in OWL is given in the machein-readable file https://spatial-information-qld.github.io/supermodel/backbone/model.ttl[backbone.ttl].
 
 [id=fig-backbone]
 .An OWL diagram of the Backbone Model overview. Uncertain objects are shown in light red.

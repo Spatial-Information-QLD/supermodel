@@ -18,7 +18,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     owl:versionInfo "0.0.1" ;
     skos:definition "This model is a Semantic Web data model used for Place Names. It caters specifically for Queensland's Place Naming needs. It is a profile of the Australian Place Names Ontology and the ANZ Address Model that declares no new objects."@en ;
     skos:prefLabel " QSI Place Names Model"@en ;
-    sdo:codeRespository "https://github.com/nicholascar/qsi-supermodel/"^^xsd:anyURI ;
+    sdo:codeRespository "https://github.com/Spatial-Information-QLD/supermodel/"^^xsd:anyURI ;
     sdo:copyrightHolder <https://orcid.org/0000-0002-8742-7730> ;
     sdo:copyrightNotice "(c) Nicholas J. Car, 2022" ;
     sdo:creator <https://orcid.org/0000-0002-8742-7730> ;

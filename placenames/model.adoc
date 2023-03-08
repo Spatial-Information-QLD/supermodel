@@ -12,7 +12,7 @@ It does not define any new classes or properties but just indicates a particular
 
 == Definition
 
-The formal definition of this profile is given below in human-readable form and in machine-readable form in the file https://nicholascar.com/qsi-supermodel/qsi-placenames/model.ttl[model.ttl].
+The formal definition of this profile is given below in human-readable form and in machine-readable form in the file https://spatial-information-qld.github.io/supermodel/placenames/model.ttl[model.ttl].
 
 [cols="1,4"]
 |===
@@ -31,7 +31,7 @@ The formal definition of this profile is given below in human-readable form and 
 | Rights | (c) Nicholas Car, 2022
 | Version IRI | https://w3id.org/profile/qsi-placename/1.0
 | Version info | 1.0
-| Code repository | https://github.com/nicholascar/qsi-supermodel
+| Code repository | https://github.com/Spatial-Information-QLD/supermodel
 |===
 
 == Model
@@ -42,7 +42,7 @@ The figure below overviews this model.
 .Overview OWL Diagram of the QSI Place Names Model
 image::overview.png[]
 
-The central classes of this model are `PlaceName` and `Place` from the https://linked.data.gov.au/def/placenames[Place Names Ontology] which are related to `AddressComponent` and `AddressableObject` within the https://w3id.org/profile/anz-address[ANZ National Address Model] respectively. A `PlaceName` is equivalent to an `AddressComponent` sub typed as `placeName` from the https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types_vocabulary[Address Component Types vocabulary] and a `Place` is equivalent to an `AddressableObject`.
+The central classes of this model are `PlaceName` and `Place` from the https://linked.data.gov.au/def/placenames[Place Names Ontology] which are related to `AddressComponent` and `AddressableObject` within the https://w3id.org/profile/anz-address[ANZ National Address Model] respectively. A `PlaceName` is equivalent to an `AddressComponent` sub typed as `placeName` from the https://spatial-information-qld.github.io/address-model/model.html#_address_component_types_vocabulary[Address Component Types vocabulary] and a `Place` is equivalent to an `AddressableObject`.
 
 Modelled in this way, a `Place` may be both related to `Address` objects and `PlaceName` objects and the `PlaceName` object may be modelled as `Address` objects if that's useful.
 
@@ -196,7 +196,7 @@ Notes:
 
 ==== Combined Modelling
 
-The mdoelling of the previous three subsections is combined in the file https://github.com/nicholascar/qsi-supermodel/qsi-placenames/oxford-place-haunted.ttl[oxford-place-haunted.ttl] in this model's code repository.
+The mdoelling of the previous three subsections is combined in the file https://github.com/Spatial-Information-QLD/supermodel/blob/main/placenames/oxford-place-haunted.ttl[oxford-place-haunted.ttl] in this model's code repository.
 
 Note that the Place Name allocated to the property in the examples above could appear as a part of a printed address if desired, perhaps:
 
@@ -212,7 +212,7 @@ All that would be required for this rendering is an address text template that o
 
 Previous modelling of Place Names in the https://linked.data.gov.au/def/placenames[Place Names Ontology] sought to categorise instances of the `Place` class with the https://linked.data.gov.au/def/placenames-categories[Place Names Categories] vocabulary. This model does not follow that categorisation and instead uses the Place Names Categories vocabulary to categorise _Place Name_ objects, not _Place_ objects. 
 
-The corollory of this is that all Concepts within the Place Names Categories vocabulary are narrower Concepts of the https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types_vocabulary[Address Component Types vocabulary]'s "place name" Concept.
+The corollory of this is that all Concepts within the Place Names Categories vocabulary are narrower Concepts of the https://spatial-information-qld.github.io/address-model/model#_address_component_types[Address Component Types vocabulary]'s "place name" Concept.
 
 To demonstrate the combined hierarchy, a portion of the Address Component Types vocabulary is:
 
@@ -341,17 +341,17 @@ ex:16-oxford-place
 .
 ```
 
-This data is also presented in the file https://nicholascar.com/qsi-supermodel/qsi-placenames/query-testing.ttl[query-testing.ttl].
+This data is also presented in the file https://github.com/Spatial-Information-QLD/supermodel/blob/main/placenames/query-testing.ttl[query-testing.ttl].
 
 === Test data: relational
 
 The data above may be stored in a relational data using the relational database implementation of the ANZ Address Model demonstrated at:
 
-* https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/implementations/relational
+* https://github.com/Spatial-Information-QLD/address-model/tree/main/implementations/relational
 
 The storage of the Address, Addressable Object and Geocode information is as per the existing examples for the ANZ Address Model in:
 
-* https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/extended-examples
+* https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples
 
 The basic place name Address Component given above would be represented in the `addresses_components` table like this:
 
