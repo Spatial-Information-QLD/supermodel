@@ -483,7 +483,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_definition"><a class="anchor" href="#_definition"></a>1. Definition</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The formal definition of this profile is given below in human-readable form and in machine-readable form in the file <a href="https://nicholascar.com/qsi-supermodel/qsi-placenames/model.ttl">model.ttl</a>.</p>
+<p>The formal definition of this profile is given below in human-readable form and in machine-readable form in the file <a href="https://spatial-information-qld.github.io/supermodel/placenames/model.ttl">model.ttl</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stripes-even stretch">
 <colgroup>
@@ -551,7 +551,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Code repository</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/nicholascar/qsi-supermodel" class="bare">https://github.com/nicholascar/qsi-supermodel</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/Spatial-Information-QLD/supermodel" class="bare">https://github.com/Spatial-Information-QLD/supermodel</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -570,7 +570,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">Figure 1. Overview OWL Diagram of the QSI Place Names Model</div>
 </div>
 <div class="paragraph">
-<p>The central classes of this model are <code>PlaceName</code> and <code>Place</code> from the <a href="https://linked.data.gov.au/def/placenames">Place Names Ontology</a> which are related to <code>AddressComponent</code> and <code>AddressableObject</code> within the <a href="https://w3id.org/profile/anz-address">ANZ National Address Model</a> respectively. A <code>PlaceName</code> is equivalent to an <code>AddressComponent</code> sub typed as <code>placeName</code> from the <a href="https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types_vocabulary">Address Component Types vocabulary</a> and a <code>Place</code> is equivalent to an <code>AddressableObject</code>.</p>
+<p>The central classes of this model are <code>PlaceName</code> and <code>Place</code> from the <a href="https://linked.data.gov.au/def/placenames">Place Names Ontology</a> which are related to <code>AddressComponent</code> and <code>AddressableObject</code> within the <a href="https://w3id.org/profile/anz-address">ANZ National Address Model</a> respectively. A <code>PlaceName</code> is equivalent to an <code>AddressComponent</code> sub typed as <code>placeName</code> from the <a href="https://spatial-information-qld.github.io/address-model/model.html#_address_component_types_vocabulary">Address Component Types vocabulary</a> and a <code>Place</code> is equivalent to an <code>AddressableObject</code>.</p>
 </div>
 <div class="paragraph">
 <p>Modelled in this way, a <code>Place</code> may be both related to <code>Address</code> objects and <code>PlaceName</code> objects and the <code>PlaceName</code> object may be modelled as <code>Address</code> objects if that&#8217;s useful.</p>
@@ -842,7 +842,7 @@ Shorncliffe, QLD 4017</code></pre>
 <div class="sect3">
 <h4 id="_combined_modelling"><a class="anchor" href="#_combined_modelling"></a>2.1.4. Combined Modelling</h4>
 <div class="paragraph">
-<p>The mdoelling of the previous three subsections is combined in the file <a href="https://github.com/nicholascar/qsi-supermodel/qsi-placenames/oxford-place-haunted.ttl">oxford-place-haunted.ttl</a> in this model&#8217;s code repository.</p>
+<p>The mdoelling of the previous three subsections is combined in the file <a href="https://github.com/Spatial-Information-QLD/supermodel/blob/main/placenames/oxford-place-haunted.ttl">oxford-place-haunted.ttl</a> in this model&#8217;s code repository.</p>
 </div>
 <div class="paragraph">
 <p>Note that the Place Name allocated to the property in the examples above could appear as a part of a printed address if desired, perhaps:</p>
@@ -865,7 +865,7 @@ Shorncliffe QLD 0417</code></pre>
 <p>Previous modelling of Place Names in the <a href="https://linked.data.gov.au/def/placenames">Place Names Ontology</a> sought to categorise instances of the <code>Place</code> class with the <a href="https://linked.data.gov.au/def/placenames-categories">Place Names Categories</a> vocabulary. This model does not follow that categorisation and instead uses the Place Names Categories vocabulary to categorise <em>Place Name</em> objects, not <em>Place</em> objects.</p>
 </div>
 <div class="paragraph">
-<p>The corollory of this is that all Concepts within the Place Names Categories vocabulary are narrower Concepts of the <a href="https://nicholascar.com/anz-nat-addr-model-candidate/model.html#_address_component_types_vocabulary">Address Component Types vocabulary</a>'s "place name" Concept.</p>
+<p>The corollory of this is that all Concepts within the Place Names Categories vocabulary are narrower Concepts of the <a href="https://spatial-information-qld.github.io/address-model/model#_address_component_types">Address Component Types vocabulary</a>'s "place name" Concept.</p>
 </div>
 <div class="paragraph">
 <p>To demonstrate the combined hierarchy, a portion of the Address Component Types vocabulary is:</p>
@@ -1084,7 +1084,7 @@ ex:16-oxford-place
 </div>
 </div>
 <div class="paragraph">
-<p>This data is also presented in the file <a href="https://nicholascar.com/qsi-supermodel/qsi-placenames/query-testing.ttl">query-testing.ttl</a>.</p>
+<p>This data is also presented in the file <a href="https://github.com/Spatial-Information-QLD/supermodel/blob/main/placenames/query-testing.ttl">query-testing.ttl</a>.</p>
 </div>
 </div>
 <div class="sect2">
@@ -1095,7 +1095,7 @@ ex:16-oxford-place
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/implementations/relational" class="bare">https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/implementations/relational</a></p>
+<p><a href="https://github.com/Spatial-Information-QLD/address-model/tree/main/implementations/relational" class="bare">https://github.com/Spatial-Information-QLD/address-model/tree/main/implementations/relational</a></p>
 </li>
 </ul>
 </div>
@@ -1105,7 +1105,7 @@ ex:16-oxford-place
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/extended-examples" class="bare">https://github.com/nicholascar/anz-nat-addr-model-candidate/tree/main/extended-examples</a></p>
+<p><a href="https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples" class="bare">https://github.com/Spatial-Information-QLD/address-model/tree/main/extended-examples</a></p>
 </li>
 </ul>
 </div>
@@ -1316,7 +1316,7 @@ ex:property-x
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-07 23:57:50 UTC
+Last updated 2023-03-08 04:49:12 UTC
 </div>
 </div>
 </body>
