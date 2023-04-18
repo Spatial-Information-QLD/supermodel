@@ -14,6 +14,20 @@ This is an overarching model - a Supermodel - used to integrate multiple, indivi
 
 This scenario is that of Queensland Cadastre, Addressing, Place Naming and Admin Areas.
 
+== Metadata
+
+[width=75%, frame=none, grid=none, cols="1,5"]
+|===
+|**IRI** | https://linked.data.gov.au/def/qsi-supermodel/spec
+|**Title** | QSI Supermodel
+|**Description** | This is an overarching model - a Supermodel - used to integrate multiple, individual, models together for use within a particular scenario.
+|**Created** | 2022-03-13
+|**Modified** | 2023-04-18
+|**Issued** | 0000-00-00
+|**Creator** | Consortium through https://frontiersi.com.au[Frontier SI]
+|**Publisher** | https://linked.data.gov.au/org/qsi[Queensland Spatial Information]
+|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
+|===
 
 == Introduction
 
@@ -50,14 +64,14 @@ OWL modelling and the RDF data that is made according to it make extensive use o
 |===
 | Prefix | Namespace | Note
 
-| `bb` | `+https://w3id.org/profile/qsi-supermodel/backbone/+` | The namespace for this Supermodel's Backbone Model
-| `cad` | `+https://w3id.org/profile/qsi-supermodel/cadastre/+` | The namespace for this Supermodel's Cadastre Component Model
+| `bb` | `+https://linked.data.gov.au/def/qsi-supermodel/backbone/+` | The namespace for this Supermodel's Backbone Model
+| `cad` | `+https://linked.data.gov.au/def/qsi-supermodel/cadastre/+` | The namespace for this Supermodel's Cadastre Component Model
 | `ex` | `+http://example.com/+` | An example namespace
 | `geo` | `+http://www.opengis.net/ont/geosparql#+` | The GeoSAPRQL Ontology's namespace
 | `rdfs` | `+http://www.w3.org/2000/01/rdf-schema#+` | The namespace of the fundamental RDF Schema model used for OWL mododelling
 |===
 
-In its definion section below, <<FeatureLabel>> is indicated as beeing authoritifely identified with the prefixed IRI (web identifier) `bb:FeatureLabel` which, expanded using the table above is `https://w3id.org/profile/qsi-supermodel/backbone/FeatureLabel` which can be clicked on to retieve it's formal definition.
+In its definion section below, <<FeatureLabel>> is indicated as beeing authoritifely identified with the prefixed IRI (web identifier) `bb:FeatureLabel` which, expanded using the table above is `https://linked.data.gov.au/def/qsi-supermodel/backbone/FeatureLabel` which can be clicked on to retieve it's formal definition.
 
 == Models
 
@@ -105,7 +119,7 @@ This Backbone Model only defines one class of object not already defined in the 
 | IRI | `bb:FeatureLabel`
 | Preferred Label | Feature Label
 | Definition | An annotation applied to a `Feature`. Specialised kinds of FeatureLabel are expected to be used, such as `Address` or `PlaceName`
-| Is Defined By | https://w3id.org/profile/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
+| Is Defined By | https://linked.data.gov.au/def/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressLifecycle` class
 | Expected Properties | <<isLabelFor, is label for>>
 | Example 
@@ -138,7 +152,7 @@ This Backbone Model only defines one property not already defined in the various
 | IRI | `bb:isLabelFor`
 | Preferred Label | is label for
 | Definition | Indicates an an object that a <<FeatureLabel, `FeatureLabel`>> is an annotation for
-| Is Defined By | https://w3id.org/profile/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
+| Is Defined By | https://linked.data.gov.au/def/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
 | Sub property of | `rdfs:label`
 | Domain | <<FeatureLabel, `FeatureLabel`>>
 | Range | `geo:Feature`
@@ -149,51 +163,35 @@ This Backbone Model only defines one property not already defined in the various
 
 ==== ANZ National Address Model
 
-The ANZ National Address Model is a model that has bee defined externally to this Supermodel. 
+The Address Model is a model that has been defined externally to this Supermodel.
 
 It is available online at:
 
-**https://w3id.org/profile/anz-address**
+**https://linked.data.gov.au/def/addr**
 
-==== QSI Place Names Model
+==== Place Names Model
 
-The model used for Place Names within this Supermodel is a profile of both the <<ANZ National Address Model>> and the https://linked.data.gov.au/def/placenames[Place Names Ontology] made for Australian government. This profile shows howt o model Place Names as Addresses with certain Address Components and Place Name ontology properties.
+The Place Names Model is a model that has been defined externally to this Supermodel.
 
-It is defined within an Annex of this Spermodel and is available online separately at:
+It is available online at:
 
-**https://w3id.org/profile/qsi-placenames**
+**https://linked.data.gov.au/def/placenames**
 
-==== QSI Cadastral Model
+==== Roads Model
 
-The Cadastral Model used within this Supermodel is only a class heirarchy of cadastral objects. No properties are yet defined for these classes.
+The Roads Model is a model that has been defined externally to this Supermodel.
 
-The class hierarchy is as follows, with nested objects being subclasses of their parents:
+It is available online at:
 
-* `geo:FeatureCollection`
-** `cad:ParcelCollection`
-*** `cad:Property`
-**** `cad:TitledProperty`
-**** `cad:ValuationProperty`
-**** `cad:RuralProperty`
-* `geo:Feature`
-** `cad:Parcel`
-*** `cad:BaseParcel`
-**** `cad:RoadParcel`
-**** `cad:WaterParcel`
-**** `cad:OtherParcel`
-***** `cad:IntersectionParcel`
-***** `cad:UnlinkedParcel`
-*** `cad:Easement`
-*** `cad:BaseParcel`
-*** `cad:StrataParcel`
-*** `cad:Building`
+**https://linked.data.gov.au/def/roads**
 
-This class hierarchy is shown graphically in the figure below:
+==== Cadastre Model
 
+The Cadastre Model is a model that has been defined externally to this Supermodel.
 
-[id=fig-cadastre]
-.The Cadastre Component Model
-image::images/cadastre.png[]
+It is available online at:
+
+**https://linked.data.gov.au/def/cad**
 
 :!sectnums:
 
@@ -201,10 +199,10 @@ image::images/cadastre.png[]
 
 This Supermodel combined validators for the Backbone Model and each of the Component Models to make a single Supermodel Validator. The technical artifact for this is online at:
 
-* https://w3id.org/profile/qsi-supermodel/validator
+* https://linked.data.gov.au/def/qsi-supermodel/validator
 
 == Bibliography
 
 * [[GEO]] [GEO] Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data_, OGC® Implementation Specification (2022). https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html 
 
-* [[OWL]] [OWL] World Wide Web Consortium, _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendaton (11 December 2012). https://www.w3.org/TR/owl2-overview/
+* [[OWL]] [OWL] World Wide Web Consortium, _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendation (11 December 2012). https://www.w3.org/TR/owl2-overview/
