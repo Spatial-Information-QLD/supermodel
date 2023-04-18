@@ -444,7 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_metadata">1. Metadata</a></li>
-<li><a href="#_components">2. Components</a></li>
+<li><a href="#_supermodel_elements">2. Supermodel Elements</a></li>
 <li><a href="#_rights_and_license">3. Rights and License</a></li>
 <li><a href="#_contacts">4. Contacts</a></li>
 </ul>
@@ -457,7 +457,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>This document is both the front page of the Spatial Information Queensland Supermodel&#8217;s repository and a <em>Guidance document</em> that introduces all the other elements of this Supermodel.</p>
 </div>
 <div class="paragraph">
-<p>To contribute to this document, see <a href="editing.adoc" class="bare">editing.adoc</a> on how to set up the editing environment.</p>
+<p>To contribute to this document, see the <a href="editing.adoc">editing instructions</a> on how to set up the editing environment.</p>
 </div>
 </div>
 </div>
@@ -472,7 +472,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>IRI</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/qsi-supermodel/guidance" class="bare">https://linked.data.gov.au/def/qsi-supermodel/guidance</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Title</strong></p></td>
@@ -488,7 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2022-06-24</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2023-04-18</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
@@ -500,60 +500,46 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Publisher</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/org/qsi">Queensland Spatial Information</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>&#8201;&#8212;&#8201;likely but not ratified yet</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_components">2. Components</h2>
+<h2 id="_supermodel_elements">2. Supermodel Elements</h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://spatial-information-qld.github.io/supermodel/supermodel.html">Specification</a></p>
-</li>
-<li>
-<p><a href="https://spatial-information-qld.github.io/supermodel/backbone/model.ttl">Backbone Model</a></p>
+<p><a href="https://linked.data.gov.au/def/qsi-supermodel/spec">Specification</a></p>
 <div class="ulist">
 <ul>
 <li>
-<p>machine-readable version</p>
+<p><a href="https://linked.data.gov.au/def/qsi-supermodel/spec#_backbone_model">Backbone Model</a></p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><a href="https://w3id.org/profile/anz-address">Address Model</a></p>
+<p><a href="https://linked.data.gov.au/def/qsi-supermodel/spec#_component_models">Component Models</a></p>
 <div class="ulist">
 <ul>
 <li>
-<p>external to this Supermodel</p>
-</li>
-</ul>
-</div>
+<p><a href="https://linked.data.gov.au/def/addr">Address Model</a></p>
 </li>
 <li>
-<p><a href="https://w3id.org/profile/qsi-placenames">Place Names Model</a></p>
-<div class="ulist">
-<ul>
-<li>
-<p>defined within this Supermodel</p>
-</li>
-</ul>
-</div>
+<p><a href="https://linked.data.gov.au/def/placenames">Place Names Model</a></p>
 </li>
 <li>
-<p><a href="https://spatial-information-qld.github.io/supermodel/supermodel.html#_qsi_cadastral_model">Cadastre Model</a></p>
-<div class="ulist">
-<ul>
+<p><a href="https://linked.data.gov.au/def/cad">Cadastre Model</a></p>
+</li>
 <li>
-<p>defined within this Supermodel</p>
+<p><a href="https://linked.data.gov.au/def/roads">Roads Model</a></p>
 </li>
 </ul>
 </div>
@@ -612,7 +598,7 @@ Queensland Government<br>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-03-08 04:49:12 UTC
+Last updated 2023-04-18 22:35:47 UTC
 </div>
 </div>
 </body>
