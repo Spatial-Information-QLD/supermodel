@@ -5,34 +5,33 @@
 
 This document is both the front page of the Spatial Information Queensland Supermodel's repository and a _Guidance document_ that introduces all the other elements of this Supermodel.
 
-To contribute to this document, see link:editing.adoc[] on how to set up the editing environment.
+To contribute to this document, see the link:editing.adoc[editing instructions] on how to set up the editing environment.
 
 == Metadata
 
 [width=75%, frame=none, grid=none, cols="1,5"]
 |===
-|**IRI** | -
+|**IRI** | https://linked.data.gov.au/def/qsi-supermodel/guidance
 |**Title** | QSI Supermodel Guidance
 |**Description** |This document is both the front page of the Queensland Land Information Supermodel's repository and a _Guidance document_ and introduces all the other elements of this Supermodel.
 |**Created** | 2022-03-13
-|**Modified** | 2022-06-24
+|**Modified** | 2023-04-18
 |**Issued** | 0000-00-00
 |**Creator** | Consortium through https://frontiersi.com.au[Frontier SI]
-|**Publisher** | -
-|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)] -- likely but not ratified yet
+|**Publisher** | https://linked.data.gov.au/org/qsi[Queensland Spatial Information]
+|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
 |===
 
-== Components
+== Supermodel Elements
 
-* link:https://spatial-information-qld.github.io/supermodel/supermodel.html[Specification]
-* https://spatial-information-qld.github.io/supermodel/backbone/model.ttl[Backbone Model]
-** machine-readable version
-* https://w3id.org/profile/anz-address[Address Model]
-** external to this Supermodel
-* https://w3id.org/profile/qsi-placenames[Place Names Model]
-** defined within this Supermodel
-* link:https://spatial-information-qld.github.io/supermodel/supermodel.html#_qsi_cadastral_model[Cadastre Model]
-** defined within this Supermodel
+* https://linked.data.gov.au/def/qsi-supermodel/spec[Specification]
+** https://linked.data.gov.au/def/qsi-supermodel/spec#_backbone_model[Backbone Model]
+* https://linked.data.gov.au/def/qsi-supermodel/spec#_component_models[Component Models]
+** https://linked.data.gov.au/def/addr[Address Model]
+** https://linked.data.gov.au/def/placenames[Place Names Model]
+** https://linked.data.gov.au/def/cad[Cadastre Model]
+** https://linked.data.gov.au/def/roads[Roads Model]
+
 
 // == Introduction
 
