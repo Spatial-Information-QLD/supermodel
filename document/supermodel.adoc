@@ -62,7 +62,7 @@ In this Supermodel, the two Integrative Models are:
 
 GeoSPARQL is used for the fundamental representation of spatial objects, for example in the <<CAD, Cadastre Model>>, a `Parcel` is a GeoSPARQL spatial `Feature`, as is an `Addressable Object` in the <<ADDR, Address Model>>.
 
-[link=images/cn-overview.png]
+[link=images/cn-overview.svg]
 [title="<<CN, CN>> overview"]
 image::images/cn-overview.svg[float="right",width=200]
 
@@ -92,7 +92,6 @@ image::images/eg-yundah.svg[,float="center",align="center",width=400]
 A complete Address has much more information than this, such as Geocodes and Lifecycle stages, but this example shows the Address / Parcel main link between the Address Model and Cadastre Model.
 ====
 
-
 === Definitions
 
 Here is a list of terms and acronyms used in this document.
@@ -108,6 +107,8 @@ Feature:: The class of object for "Anything spatial (being or having a shape, po
 Geometry:: The class of object for "A coherent set of direct positions in space", according to <<GEO, GeoSPARQL>>
 
 [[IM]] Integrative Model:: A role within a Supermodel for models reused and extended by <<Component Models>>. Use of these models ensures general modelling patterns are present in all Component Models.
+
+[[IRI]] IRI:: Internationalized Resource Identifiers (IRIs) are Internet protocol standard identifiers used to identify, and often to link to representations of, resources. IRIs add internationalisation (use of different character sets to) Uniform Resource Identifiers (URIs) which are a superset of Uniform Resource Locators (URLs). Where URLs - web addresses - must link to resources, URIs often do but need not. https://en.wikipedia.org/wiki/Internationalized_Resource_Identifier[[ref]]
 
 [[profile]] profile:: "A specification that constrains, extends, combines, or provides guidance or explanation about the usage of other specifications" according to <<PROF, The Profiles Vocabulary>>.
 
@@ -260,7 +261,143 @@ It is available online at:
 [[PIDs]]
 == Annex A: PID Rules
 
-#Coming Soon#
+This section provide the policy for the creation of Persistent Identifiers (PIDs) for objects within the scope of this Supermodel.
+
+=== Type
+
+PIDs within this Supermodel are <<IRI, IRIs>> which means they are typically represented like an Internet web address:
+
+`{SCHEME}://{AUTHORITY}/{PATH}`
+
+e.g. - the PID for this Supermodel:
+
+`+http://linked.data.gov.au/def/qsi-supermodel+`
+
+where the **SCHEME** is the `HTTPS` protocol, the **AUTHORITY** is `linked.data.gov.au` and the **PATH** is `def/qsi-supermodel`.
+
+IRIs in this form should be quoted in full wherever possible, i.e. within datasets, exchange data and documents.
+
+This IRI for this Supermodel does indeed resolve as a web address, to this document:
+
+* http://linked.data.gov.au/def/qsi-supermodel
+
+=== Authority
+
+The authority for all identifiers used in this Supermodel is `linked.data.gov.au` which is the Internet domain name allocated to the https://www.linked.data.gov.au[Australian Government Linked Data Working Group (AGLDWG)] expressly for the purpose of creating IRI PIDs for Australian government.
+
+PIDs using `linked.data.gov.au` must be registered with the AGLDWG.
+
+=== Non-IRI Representation
+
+[discrete]
+==== In Concept
+
+Where an object cannot be identified with an IRI - perhaps the underlying technical system cannot store full web addresses - it may have an IRI substitute use which must consist of 2 data fields:
+
+1. Object Identifier
+2. System Identifier
+
+The **Object Identifier** part can be anything used to uniquely identify the object within the context of the system identified by the System Identifier, for example an auto-incrementing number, a structured number, a string or a UUID.
+
+[NOTE]
+====
+Since Object Identifiers are managed by individual systems, implementers of those systems may choose to indicate, or not, object classes within them, as long as all Object Identifiers managed by that system are unique within its context.
+
+For example, `Address` and `Address Part` objects, within the <<ADDR, Address Model>>, may have Object Identifiers of the form `address/UUID` & `addressPart/UUID`, or just `UUID`, since unique UUIDs creation can be assured, even for un-synchronised creation methods.
+====
+
+The **System Identifier** is the unique identifier for the system generating the Object Identifiers. It must be recorded in the table of <<Known Systems>>, below.
+
+For each system identified in the <<Known Systems>> table below, a System PID Namespace is allocated. To assemble the IRI PID, the following logic is used:
+
+`IRI  PID :== System PID Namespace / "dataset" / Object Identifier`
+
+For the Queensland Addressing & Location Information (QALI) system, the System Identifier is `qali` and the System PID Namespace is `http://linked.data.gov.au/dataset/qld-addr`, thus, for the Address with Object Identifier `address/605bf8e7-315a-562b-af4c-16a870732daf`, a class marker of "address" and a UUID, the complete IRI PID is:
+
+`https://linked.data.gov.au/dataset/qld-addr/address/605bf8e7-315a-562b-af4c-16a870732daf`
+
+[discrete]
+==== In RDF data
+
+Where a PID is represented in non IRI form and this must be stored in the RDF format, for example for exchange according to the <<ADDR, Address Model>>, the **Object Identifier** must be represented as a literal with a custom datatype of the **System Identifier** and indicated with the `schema:identifier` if in an ontology or a dataset or `skos:notation` if in a vocabulary. For the address in the example above, this would look like the following:
+
+[source,turtle]
+----
+<...>
+    a addr:Address ;
+    schema:identifier "address/605bf8e7-315a-562b-af4c-16a870732daf"^^<https://linked.data.gov.au/dataset/qld-addr> ;
+.
+----
+
+=== Kinds
+
+The following kinds of PID are to be allocated to data objects in this Supermodel:
+
+1. **high-level definitional object**
+    * the Supermodel itself
+    * whole models and vocabularies within the Supermodel
+2. **low-level definitional object**
+    * Classes, Concepts, Predicates & Datatypes defined within models and vocabularies
+3. **high-level data object**
+    * whole datasets of content created in accordance with this Supermodel
+4. **low-level data object**
+    * objects within datasets
+
+=== Definitional PIDs
+
+Models and vocabularies within this Supermodel, and the Supermodel itself, are assigned _high-level definitional object_ PIDs as per the table below and allocate _low-level definitional object_ PIDs within their namespaces.
+
+[cols="1,2,4"]
+|===
+| ID | Name | PID Namespace
+
+| `qsi-supermodel` | The QSI Supermodel | `http://linked.data.gov.au/def/qsi-supermodel`
+| `addr` | Address Model | `http://linked.data.gov.au/def/addr`
+| `cad` | Cadastral Model | `http://linked.data.gov.au/def/cad`
+| `csdm` | Cadastral Survey Data Model | `http://linked.data.gov.au/def/csdm`
+| `gn` | Geographical Model | `http://linked.data.gov.au/def/gn`
+| `roads` | Road Naming Model | `http://linked.data.gov.au/def/roads`
+
+3+| **ICSM Address Vocabularies**
+| `address-classes` | Address Classes | `http://linked.data.gov.au/def/address-classes`
+| `subaddress-types` | Address Types | `http://linked.data.gov.au/def/subaddress-types`
+| `address-status-type` | Address Status Types | `http://linked.data.gov.au/def/address-status-type`
+| `address-level-types` | Address Level Types | `http://linked.data.gov.au/def/address-level-types`
+| `geocode-types` | Geocode Types | `http://linked.data.gov.au/def/geocode-types`
+
+|===
+
+
+=== Known Systems
+
+The following are all the known systems creating identifiers for data within the scope of this Supermodel as well as known class markers used by them. The systems use _high-level data object_ PIDs for their major datasets and _low-level data object_ PIDs for each element of those datasets.
+
+NOTE:: It is not necessary for systems to use unique PID Namespaces as long as unique Object Identifier creation can be guaranteed across all systems sharing a PID Namespace. Systems may also be allocated more than one PID Namespace if, for example, the are responsible for more than one distinct conceptual dataset.
+
+[cols="1,2,4,2"]
+|===
+| ID | Name | PID Namespace | Class Markers
+
+| `qali` | Queensland Addressing & Location Information (QALI) | `http://linked.data.gov.au/dataset/qld-addr` a|
+`address`
+`geocode`
+`gn`
+`road-label`
+
+| `sir` | Spatial Information Repository (SIR) | `http://linked.data.gov.au/dataset/qld-cad` a|
+`line`
+`parcel`
+`point`
+`property`
+`record`
+|===
+
+#Unresolved Questions#
+
+* where to Road, not Road Name, IDs come from?
+* where do Property (Parcel Aggregate) IDs come from?
+
+=== PID representation
 
 [[Validation]]
 == Annex B: Validation

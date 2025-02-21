@@ -1,7 +1,7 @@
 watch:
 	mkdir -p dist/
 	cp *.ttl dist/
-	cp -r images dist/
+	cp -r document/images dist/
 	mkdir -p dist/backbone
 	cp backbone/model.ttl dist/backbone/model.ttl
 	mkdir -p dist/placenames
