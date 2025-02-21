@@ -29,7 +29,7 @@ This 'Supermodel' is a set of data models used by https://www.nrmmrrd.qld.gov.au
 
 == Introduction
 
-Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Place Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Place (Geographical) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.
+Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Geographical Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Geographical (Place) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.
 
 For all datasets in all systems, their codelists, lookup values and feature types have been updated into stand-alone controlled vocabularies, many of which are standardised with other ANZ jurisdictions and published by https://www.icsm.gov.au[ICSM].
 
@@ -96,9 +96,9 @@ A complete Address has much more information than this, such as Geocodes and Lif
 
 Here is a list of terms and acronyms used in this document.
 
-Background Model:: A role within a Supermodel for low level or generic models that some, but not necessarily all, of the <<Component Models>> and the <<IM>> reuse and extend.
+[[BM]] Background Model:: A role within a Supermodel for low level or generic models that some, but not necessarily all, of the <<Component Models>> and the <<IM>> reuse and extend.
 
-Component Model:: A role within a Supermodel for the models of individual datasets within the set aiming for interoperability. Component Models must reuse and extend the <<IM>>.
+[[CM]] Component Model:: A role within a Supermodel for the models of individual datasets within the set aiming for interoperability. Component Models must reuse and extend the <<IM>>.
 
 Compound Name:: The class of objects for "a literal value, or objects that can be interpreted as literal values, that describe or name a Feature", according to the <<CN, Compound Naming Model>>
 
@@ -140,9 +140,34 @@ The structure of this document and the roles of each part are as follows:
 
 === Supermodel
 
-This Supermodel is the overall system that implements a <<Backbone Model>> which contains central elements from the various <<Component Models>> and some additional modelling "glue" to allow it to act as the integrative model between them. The Backbone Model, Component Models, model validators and this documentation together make the Supermodel.
+This Supermodel is the total set models listed here.
 
-The following figure lists the various part models of this Supermodel.
+==== Human-readable Form
+
+This document contains the normative, human-readable description of the Supermodel.
+
+The Supermodel is the total set of models listed below and is also conceived of as a <<profile, profile>> of the total set.
+
+The models within this Supermodel and the roles they play are listed in the table below.
+
+[cols="1,3,2,2"]
+|===
+|Name | Description | Role | PID
+
+|Address Model | ... | <<CM, Component Model>> | `https://linked.data.gov.au/def/addr`
+|Geographical Names Model | ... | <<CM, Component Model>> | `https://linked.data.gov.au/def/gn`
+|Road Names Model | ... | <<CM, Component Model>> | `https://linked.data.gov.au/def/roads`
+|Cadastral Model | ... | <<CM, Component Model>> | `https://linked.data.gov.au/def/cad`
+|Cadastral Survey Data Model | ... | <<CM, Component Model>> | `https://linked.data.gov.au/def/csdm`
+|===
+
+==== Machine-readable Form
+
+The machine-readable form of this Supermodel is an <<OWL, OWL>> model, formulated according to the <<PROF, Profiles Vocabulary>> and is online at:
+
+* **http://linked.data.gov.au/def/qsi-supermodel.ttl**
+
+
 
 [id=fig-models]
 .An informal diagram the part Models of this Supermodel. The Administrative Areas model is not yet defined.
@@ -163,8 +188,8 @@ Figure 2 indicates two main conceptual domains (the yellow and blue) centered on
 The class hierharchy expressed in this Backbone Model (with sub class of arrows) indicates that:
 
 * `Address`, `AdministrativeArea` and perhaps `Title`` are all specialised forms of `FeatureLabel`
-* `PlaceName` is a form of `Address` (a very simple one!)
-* `Places` are a specialised form of `AddressableObject` and `AddressableObject` and `Parcel`, and others, are speciali types of `geo:Feature`
+* `GeographicalName` is a form of `Address` (a very simple one!)
+* `Geographical Objects` are a specialised form of `AddressableObject` and `AddressableObject` and `Parcel`, and others, are speciali types of `geo:Feature`
 
 The various Component Models (next) use these classes of object and imlplement many more specilised forms of them.
 
@@ -181,7 +206,7 @@ This Backbone Model only defines one class of object not already defined in the 
 
 | IRI | `bb:FeatureLabel`
 | Preferred Label | Feature Label
-| Definition | An annotation applied to a `Feature`. Specialised kinds of FeatureLabel are expected to be used, such as `Address` or `PlaceName`
+| Definition | An annotation applied to a `Feature`. Specialised kinds of FeatureLabel are expected to be used, such as `Address` or `GeographicalName`
 | Is Defined By | https://linked.data.gov.au/def/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
 | Provenance | Derived from <<ISO19160-1>>'s `AddressLifecycle` class
 | Expected Properties | <<isLabelFor, is label for>>
@@ -232,9 +257,9 @@ It is available online at:
 
 **https://linked.data.gov.au/def/addr**
 
-==== Place Names Model
+==== Geographical Names Model
 
-The Place Names Model is a model that has been defined externally to this Supermodel.
+The Geographical Names Model is a model that has been defined externally to this Supermodel.
 
 It is available online at:
 
@@ -356,7 +381,7 @@ Models and vocabularies within this Supermodel, and the Supermodel itself, are a
 | `cad` | Cadastral Model | `http://linked.data.gov.au/def/cad`
 | `csdm` | Cadastral Survey Data Model | `http://linked.data.gov.au/def/csdm`
 | `gn` | Geographical Model | `http://linked.data.gov.au/def/gn`
-| `roads` | Road Naming Model | `http://linked.data.gov.au/def/roads`
+| `roads` | Road Names Model | `http://linked.data.gov.au/def/roads`
 
 3+| **ICSM Address Vocabularies**
 | `address-classes` | Address Classes | `http://linked.data.gov.au/def/address-classes`
