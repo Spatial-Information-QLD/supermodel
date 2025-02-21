@@ -451,7 +451,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_models">3. Models</a>
 <ul class="sectlevel2">
-<li><a href="#_supermodel">3.1. Supermodel</a></li>
+<li><a href="#_supermodel">3.1. Supermodel</a>
+<ul class="sectlevel3">
+<li><a href="#_human_readable_form">3.1.1. Human-readable Form</a></li>
+<li><a href="#_machine_readable_form">3.1.2. Machine-readable Form</a></li>
+</ul>
+</li>
 <li><a href="#_backbone_model">3.2. Backbone Model</a>
 <ul class="sectlevel3">
 <li><a href="#_classes">3.2.1. Classes</a></li>
@@ -461,7 +466,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_component_models">3.3. Component Models</a>
 <ul class="sectlevel3">
 <li><a href="#_anz_national_address_model">3.3.1. ANZ National Address Model</a></li>
-<li><a href="#_place_names_model">3.3.2. Place Names Model</a></li>
+<li><a href="#_geographical_names_model">3.3.2. Geographical Names Model</a></li>
 <li><a href="#_roads_model">3.3.3. Roads Model</a></li>
 <li><a href="#_cadastre_model">3.3.4. Cadastre Model</a></li>
 </ul>
@@ -554,7 +559,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>2. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Place Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Place (Geographical) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.</p>
+<p>Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Geographical Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Geographical (Place) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.</p>
 </div>
 <div class="paragraph">
 <p>For all datasets in all systems, their codelists, lookup values and feature types have been updated into stand-alone controlled vocabularies, many of which are standardised with other ANZ jurisdictions and published by <a href="https://www.icsm.gov.au">ICSM</a>.</p>
@@ -665,11 +670,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="dlist">
 <dl>
-<dt class="hdlist1">Background Model</dt>
+<dt class="hdlist1"><a id="BM"></a> Background Model</dt>
 <dd>
 <p>A role within a Supermodel for low level or generic models that some, but not necessarily all, of the <a href="#_component_models">Component Models</a> and the <a href="#IM">Integrative Model</a> reuse and extend.</p>
 </dd>
-<dt class="hdlist1">Component Model</dt>
+<dt class="hdlist1"><a id="CM"></a> Component Model</dt>
 <dd>
 <p>A role within a Supermodel for the models of individual datasets within the set aiming for interoperability. Component Models must reuse and extend the <a href="#IM">Integrative Model</a>.</p>
 </dd>
@@ -760,10 +765,79 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_supermodel"><a class="anchor" href="#_supermodel"></a>3.1. Supermodel</h3>
 <div class="paragraph">
-<p>This Supermodel is the overall system that implements a <a href="#_backbone_model">Backbone Model</a> which contains central elements from the various <a href="#_component_models">Component Models</a> and some additional modelling "glue" to allow it to act as the integrative model between them. The Backbone Model, Component Models, model validators and this documentation together make the Supermodel.</p>
+<p>This Supermodel is the total set models listed here.</p>
+</div>
+<div class="sect3">
+<h4 id="_human_readable_form"><a class="anchor" href="#_human_readable_form"></a>3.1.1. Human-readable Form</h4>
+<div class="paragraph">
+<p>This document contains the normative, human-readable description of the Supermodel.</p>
 </div>
 <div class="paragraph">
-<p>The following figure lists the various part models of this Supermodel.</p>
+<p>The Supermodel is the total set of models listed below and is also conceived of as a <a href="#profile">profile</a> of the total set.</p>
+</div>
+<div class="paragraph">
+<p>The models within this Supermodel and the roles they play are listed in the table below.</p>
+</div>
+<table class="tableblock frame-all grid-all stripes-even stretch">
+<colgroup>
+<col style="width: 12.5%;">
+<col style="width: 37.5%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+<th class="tableblock halign-left valign-top">Role</th>
+<th class="tableblock halign-left valign-top">PID</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Address Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CM">Component Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/addr" class="bare">https://linked.data.gov.au/def/addr</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Geographical Names Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CM">Component Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Road Names Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CM">Component Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cadastral Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CM">Component Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/cad" class="bare">https://linked.data.gov.au/def/cad</a></code></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cadastral Survey Data Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&#8230;&#8203;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#CM">Component Model</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="https://linked.data.gov.au/def/csdm" class="bare">https://linked.data.gov.au/def/csdm</a></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_machine_readable_form"><a class="anchor" href="#_machine_readable_form"></a>3.1.2. Machine-readable Form</h4>
+<div class="paragraph">
+<p>The machine-readable form of this Supermodel is an <a href="#OWL">OWL</a> model, formulated according to the <a href="#PROF">Profiles Vocabulary</a> and is online at:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong><a href="http://linked.data.gov.au/def/qsi-supermodel.ttl" class="bare">http://linked.data.gov.au/def/qsi-supermodel.ttl</a></strong></p>
+</li>
+</ul>
 </div>
 <div id="fig-models" class="imageblock">
 <div class="content">
@@ -773,6 +847,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="paragraph">
 <p>For technical use, the machine-readable versions of the Backbone Model and the Component Models can be combined and used as the total Supermodel.</p>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -798,10 +873,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><code>Address</code>, <code>AdministrativeArea</code> and perhaps <code>Title`</code> are all specialised forms of <code>FeatureLabel</code></p>
 </li>
 <li>
-<p><code>PlaceName</code> is a form of <code>Address</code> (a very simple one!)</p>
+<p><code>GeographicalName</code> is a form of <code>Address</code> (a very simple one!)</p>
 </li>
 <li>
-<p><code>Places</code> are a specialised form of <code>AddressableObject</code> and <code>AddressableObject</code> and <code>Parcel</code>, and others, are speciali types of <code>geo:Feature</code></p>
+<p><code>Geographical Objects</code> are a specialised form of <code>AddressableObject</code> and <code>AddressableObject</code> and <code>Parcel</code>, and others, are speciali types of <code>geo:Feature</code></p>
 </li>
 </ul>
 </div>
@@ -837,7 +912,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Definition</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An annotation applied to a <code>Feature</code>. Specialised kinds of FeatureLabel are expected to be used, such as <code>Address</code> or <code>PlaceName</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">An annotation applied to a <code>Feature</code>. Specialised kinds of FeatureLabel are expected to be used, such as <code>Address</code> or <code>GeographicalName</code></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Is Defined By</p></td>
@@ -944,9 +1019,9 @@ ex:feature-x
 </div>
 </div>
 <div class="sect3">
-<h4 id="_place_names_model"><a class="anchor" href="#_place_names_model"></a>3.3.2. Place Names Model</h4>
+<h4 id="_geographical_names_model"><a class="anchor" href="#_geographical_names_model"></a>3.3.2. Geographical Names Model</h4>
 <div class="paragraph">
-<p>The Place Names Model is a model that has been defined externally to this Supermodel.</p>
+<p>The Geographical Names Model is a model that has been defined externally to this Supermodel.</p>
 </div>
 <div class="paragraph">
 <p>It is available online at:</p>
@@ -1191,7 +1266,7 @@ ex:feature-x
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>roads</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Road Naming Model</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Road Names Model</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code><a href="http://linked.data.gov.au/def/roads" class="bare">http://linked.data.gov.au/def/roads</a></code></p></td>
 </tr>
 <tr>
@@ -1366,7 +1441,7 @@ ex:feature-x
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2025-02-21 11:18:43 UTC
+Last updated 2025-02-21 13:06:52 UTC
 </div>
 </div>
 </body>
