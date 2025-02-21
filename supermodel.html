@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.16">
+<meta name="generator" content="Asciidoctor 2.0.20">
+<link rel="icon" type="image/svg" href="images/logo-qld.svg">
 <title>Queensland Spatial Information Supermodel</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -84,10 +85,10 @@ code{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;
 ul,ol,dl{line-height:1.6;margin-bottom:1.25em;list-style-position:outside;font-family:inherit}
 ul,ol{margin-left:1.5em}
 ul li ul,ul li ol{margin-left:1.25em;margin-bottom:0}
-ul.square li ul,ul.circle li ul,ul.disc li ul{list-style:inherit}
-ul.square{list-style-type:square}
 ul.circle{list-style-type:circle}
 ul.disc{list-style-type:disc}
+ul.square{list-style-type:square}
+ul.circle ul:not([class]),ul.disc ul:not([class]),ul.square ul:not([class]){list-style:inherit}
 ol li ul,ol li ol{margin-left:1.25em;margin-bottom:0}
 dl dt{margin-bottom:.3125em;font-weight:bold}
 dl dd{margin-bottom:1.25em}
@@ -193,7 +194,8 @@ body.toc2.toc-right{padding-left:0;padding-right:20em}}
 #content h1>a.link:hover,h2>a.link:hover,h3>a.link:hover,#toctitle>a.link:hover,.sidebarblock>.content>.title>a.link:hover,h4>a.link:hover,h5>a.link:hover,h6>a.link:hover{color:#a53221}
 details,.audioblock,.imageblock,.literalblock,.listingblock,.stemblock,.videoblock{margin-bottom:1.25em}
 details{margin-left:1.25rem}
-details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;-webkit-tap-highlight-color:transparent}
+details>summary{cursor:pointer;display:block;position:relative;line-height:1.6;margin-bottom:.625rem;outline:none;-webkit-tap-highlight-color:transparent}
+details>summary::-webkit-details-marker{display:none}
 details>summary::before{content:"";border:solid transparent;border-left:solid;border-width:.3em 0 .3em .5em;position:absolute;top:.5em;left:-1.25rem;transform:translateX(15%)}
 details[open]>summary::before{border:solid transparent;border-top:solid;border-width:.5em .3em 0;transform:translateY(15%)}
 details>summary::after{content:"";width:1.25rem;height:1em;position:absolute;top:.3em;left:-1.25rem}
@@ -207,13 +209,10 @@ table.tableblock.fit-content>caption.title{white-space:nowrap;width:0}
 .admonitionblock>table td.content{padding-left:1.125em;padding-right:1.25em;border-left:1px solid #dddddf;color:rgba(0,0,0,.6);word-wrap:anywhere}
 .admonitionblock>table td.content>:last-child>:last-child{margin-bottom:0}
 .exampleblock>.content{border:1px solid #e6e6e6;margin-bottom:1.25em;padding:1.25em;background:#fff;border-radius:4px}
-.exampleblock>.content>:first-child{margin-top:0}
-.exampleblock>.content>:last-child{margin-bottom:0}
 .sidebarblock{border:1px solid #dbdbd6;margin-bottom:1.25em;padding:1.25em;background:#f3f3f2;border-radius:4px}
-.sidebarblock>:first-child{margin-top:0}
-.sidebarblock>:last-child{margin-bottom:0}
 .sidebarblock>.content>.title{color:#7a2518;margin-top:0;text-align:center}
-.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
+.exampleblock>.content>:first-child,.sidebarblock>.content>:first-child{margin-top:0}
+.exampleblock>.content>:last-child,.exampleblock>.content>:last-child>:last-child,.exampleblock>.content .olist>ol>li:last-child>:last-child,.exampleblock>.content .ulist>ul>li:last-child>:last-child,.exampleblock>.content .qlist>ol>li:last-child>:last-child,.sidebarblock>.content>:last-child,.sidebarblock>.content>:last-child>:last-child,.sidebarblock>.content .olist>ol>li:last-child>:last-child,.sidebarblock>.content .ulist>ul>li:last-child>:last-child,.sidebarblock>.content .qlist>ol>li:last-child>:last-child{margin-bottom:0}
 .literalblock pre,.listingblock>.content>pre{border-radius:4px;overflow-x:auto;padding:1em;font-size:.8125em}
 @media screen and (min-width:768px){.literalblock pre,.listingblock>.content>pre{font-size:.90625em}}
 @media screen and (min-width:1280px){.literalblock pre,.listingblock>.content>pre{font-size:1em}}
@@ -235,9 +234,8 @@ pre.prettyprint li:not(:first-child) code[data-lang]::before{display:none}
 table.linenotable{border-collapse:separate;border:0;margin-bottom:0;background:none}
 table.linenotable td[class]{color:inherit;vertical-align:top;padding:0;line-height:inherit;white-space:normal}
 table.linenotable td.code{padding-left:.75em}
-table.linenotable td.linenos{border-right:1px solid;opacity:.35;padding-right:.5em}
-pre.pygments .lineno{border-right:1px solid;opacity:.35;display:inline-block;margin-right:.75em}
-pre.pygments .lineno::before{content:"";margin-right:-.125em}
+table.linenotable td.linenos,pre.pygments .linenos{border-right:1px solid;opacity:.35;padding-right:.5em;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+pre.pygments span.linenos{display:inline-block;margin-right:.75em}
 .quoteblock{margin:0 1em 1.25em 1.5em;display:table}
 .quoteblock:not(.excerpt)>.title{margin-left:-1.5em;margin-bottom:.75em}
 .quoteblock blockquote,.quoteblock p{color:rgba(0,0,0,.85);font-size:1.15rem;line-height:1.75;word-spacing:.1em;letter-spacing:0;font-style:italic;text-align:justify}
@@ -274,7 +272,7 @@ table.frame-none>colgroup+*>:first-child>*,table.frame-sides>colgroup+*>:first-c
 table.frame-none>:last-child>:last-child>*,table.frame-sides>:last-child>:last-child>*{border-bottom-width:0}
 table.frame-none>*>tr>:first-child,table.frame-ends>*>tr>:first-child{border-left-width:0}
 table.frame-none>*>tr>:last-child,table.frame-ends>*>tr>:last-child{border-right-width:0}
-table.stripes-all tr,table.stripes-odd tr:nth-of-type(odd),table.stripes-even tr:nth-of-type(even),table.stripes-hover tr:hover{background:#f8f8f7}
+table.stripes-all>*>tr,table.stripes-odd>*>tr:nth-of-type(odd),table.stripes-even>*>tr:nth-of-type(even),table.stripes-hover>*>tr:hover{background:#f8f8f7}
 th.halign-left,td.halign-left{text-align:left}
 th.halign-right,td.halign-right{text-align:right}
 th.halign-center,td.halign-center{text-align:center}
@@ -290,10 +288,11 @@ ol{margin-left:1.75em}
 ul li ol{margin-left:1.5em}
 dl dd{margin-left:1.125em}
 dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
-ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
+li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.checklist,ul.none,ol.none,ul.no-bullet,ol.no-bullet,ol.unnumbered,ul.unstyled,ol.unstyled{list-style-type:none}
 ul.no-bullet,ol.no-bullet,ol.unnumbered{margin-left:.625em}
 ul.unstyled,ol.unstyled{margin-left:0}
+li>p:empty:only-child::before{content:"";display:inline-block}
 ul.checklist>li>p:first-child{margin-left:-1em}
 ul.checklist>li>p:first-child>.fa-square-o:first-child,ul.checklist>li>p:first-child>.fa-check-square-o:first-child{width:1.25em;font-size:.8em;position:relative;bottom:.125em}
 ul.checklist>li>p:first-child>input[type=checkbox]:first-child{margin-right:.25em}
@@ -336,8 +335,6 @@ sup.footnote a:active,sup.footnoteref a:active{text-decoration:underline}
 #footnotes .footnote a:first-of-type{font-weight:bold;text-decoration:none;margin-left:-1.05em}
 #footnotes .footnote:last-of-type{margin-bottom:0}
 #content #footnotes{margin-top:-.625em;margin-bottom:0;padding:.75em 0}
-.gist .file-data>table{border:0;background:#fff;width:100%;margin-bottom:0}
-.gist .file-data>table td.line-data{width:99%}
 div.unbreakable{page-break-inside:avoid}
 .big{font-size:larger}
 .small{font-size:smaller}
@@ -394,7 +391,7 @@ b.conum *{color:inherit!important}
 dt,th.tableblock,td.content,div.footnote{text-rendering:optimizeLegibility}
 h1,h2,p,td.content,span.alt,summary{letter-spacing:-.01em}
 p strong,td.content strong,div.footnote strong{letter-spacing:-.005em}
-p,blockquote,dt,td.content,span.alt,summary{font-size:1.0625rem}
+p,blockquote,dt,td.content,td.hdlist1,span.alt,summary{font-size:1.0625rem}
 p{margin-bottom:1.25rem}
 .sidebarblock p,.sidebarblock dt,.sidebarblock td.content,p.tableblock{font-size:1em}
 .exampleblock>.content{background:#fffef7;border-color:#e0e0dc;box-shadow:0 1px 4px #e0e0dc}
@@ -446,7 +443,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_metadata">1. Metadata</a></li>
 <li><a href="#_introduction">2. Introduction</a>
 <ul class="sectlevel2">
-<li><a href="#_modelling_methods">2.1. Modelling Methods</a></li>
+<li><a href="#_modelling_system">2.1. Modelling System</a></li>
+<li><a href="#_integrative_models">2.2. Integrative Models</a></li>
+<li><a href="#_definitions">2.3. Definitions</a></li>
+<li><a href="#_doc_structure">2.4. Doc Structure</a></li>
 </ul>
 </li>
 <li><a href="#_models">3. Models</a>
@@ -468,8 +468,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 </ul>
 </li>
-<li><a href="#_annex_a_validators">Annex A: Validators</a></li>
-<li><a href="#_bibliography">Bibliography</a></li>
+<li><a href="#PIDs">Annex A: PID Rules</a></li>
+<li><a href="#Validation">Annex B: Validation</a></li>
+<li><a href="#_references">References</a></li>
 </ul>
 </div>
 </div>
@@ -478,19 +479,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="imageblock center text-center">
 <div class="content">
-<img src="images/models.png" alt="models" width="700">
-</div>
-</div>
-<div class="imageblock center text-center">
-<div class="content">
-<img src="images/level-2.png" alt="level 2" width="500">
+<img src="images/overview.svg" alt="overview" width="700">
 </div>
 </div>
 <div class="paragraph">
-<p>This is an overarching model - a Supermodel - used to integrate multiple, individual, models together for use within a particular scenario.</p>
-</div>
-<div class="paragraph">
-<p>This scenario is that of Queensland Cadastre, Addressing, Place Naming and Admin Areas.</p>
+<p>This 'Supermodel' is a set of data models used by <a href="https://www.nrmmrrd.qld.gov.au/data-mapping">Queensland Spatial Information</a> to integrate data from formerly separate systems into an interoperable whole.</p>
 </div>
 </div>
 </div>
@@ -505,7 +498,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>IRI</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/qsi-supermodel/spec" class="bare">https://linked.data.gov.au/def/qsi-supermodel/spec</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://linked.data.gov.au/def/qsi-supermodel" class="bare">https://linked.data.gov.au/def/qsi-supermodel</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Title</strong></p></td>
@@ -521,7 +514,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Modified</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">2023-04-18</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2025-02-21</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Issued</strong></p></td>
@@ -529,7 +522,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Creator</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Consortium through <a href="https://frontiersi.com.au">Frontier SI</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://kurrawong.ai">KurrawongAI</a>, for QSI</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Publisher</strong></p></td>
@@ -539,6 +532,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>License</strong></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Code Repository</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://github.com/Spatial-Information-QLD/supermodel">https://github.com/</a></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -547,114 +544,198 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction"><a class="anchor" href="#_introduction"></a>2. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The purpose of a Supermodel such as this one is to allow for data integration across multiple component models. This particular Supermodel indicates how to integrate data formulated according to the <a href="#_anz_national_address_model">ANZ National Address Model</a> (Candidate), the proposed <a href="#QSI Cadastral Model">[QSI Cadastral Model]</a>, a model for Place Names and anotehr for Administrative Areas.</p>
+<p>Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Place Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Place (Geographical) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.</p>
 </div>
 <div class="paragraph">
-<p>The Supermodel does this by implementing a <a href="#_backbone_model">Backbone Model</a> that is an abstracted version of the main objects within the various Component Models. This Backbone Model does not implement any material not already present in the Component Model.</p>
+<p>For all datasets in all systems, their codelists, lookup values and feature types have been updated into stand-alone controlled vocabularies, many of which are standardised with other ANZ jurisdictions and published by <a href="https://www.icsm.gov.au">ICSM</a>.</p>
+</div>
+<div class="paragraph">
+<p>By using/corresponding to Background Models and using standard terms from Vocabularies, the "Component Models" for each major QSI dataset share common structural patterns and values such that they can be cross-queried and used together in many ways. For example, you can query the combined system for an Address and get any Geographical Names that are part of it and their spatial extents, as well as the Property grouping of cadastral parcels it is an address for and their spatial extents.</p>
+</div>
+<div class="paragraph">
+<p>In addition to component system upgrades and model upgrades, a number of new web services and data platforms have also been implemented by QSI to make using these now harmonised models together much easier at a technical level: single access points, etc.</p>
+</div>
+<div class="imageblock right">
+<div class="content">
+<img src="images/logo-owl.png" alt="logo owl">
+</div>
 </div>
 <div class="sect2">
-<h3 id="_modelling_methods"><a class="anchor" href="#_modelling_methods"></a>2.1. Modelling Methods</h3>
+<h3 id="_modelling_system"><a class="anchor" href="#_modelling_system"></a>2.1. Modelling System</h3>
 <div class="paragraph">
-<p>All the Component Models and the Backbone Model given here are implemented using the Web Ontology Language known as OWL <a href="#OWL">[OWL]</a>. OWL is a well used, standardised, powerful, formal, modelling language. Use of OWL creates data models that can be visualised and also that data can be validated against in automated ways, see <a href="#_annex_a_validators">Annex A: Validators</a>.</p>
-</div>
-<div class="paragraph">
-<p>OWL modelling is a set-theoretic modelling language which means using it involves placing things - concepts, digital representations of real-world objects - into <em>classes</em>. Objects in the classes are all similar in some way: perhaps they all have similar <em>properties</em>.</p>
+<p>All the models in this <a href="#SM">Supermodel</a> set are implemented using the <a href="#OWL"><em>Web Ontology Language</em> OWL</a>. OWL is a very widely used, standardised, formal modelling language. Unlike <a href="#UML">UML</a> models, OWL models natively have machine-readable forms allowing data made according to them to be automatically validated and processed into databases.</p>
 </div>
 <div class="paragraph">
-<p>In this Supermodel, some fundamental classes are used for all things within scope, such as:</p>
+<p>The Supermodel&#8217;s constituent models are related to one another using <a href="#PROF"><em>The Profiles Vocabulary</em> PROF</a> which provides properties to indicate when and how one model reuses - "<a href="#profile">profiles</a>" - another. PROF also links models to validators created to test data claiming conformance to them.</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>Feature</code> - Anything spatial (being or having a shape, position or an extent)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>From the GeoSPARQL 1.1 Ontology <a href="#GEO">[GEO]</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>Geometry</code> - A coherent set of direct positions in space. The positions are held within a Spatial Reference System (SRS)</p>
-<div class="ulist">
-<ul>
-<li>
-<p>From <a href="#GEO">[GEO]</a></p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><code>FeatureLabel</code> - An annotation applied to a <code>Feature</code>. Specialised kinds of FeatureLabel are expected to be used, such as <code>Address</code> or <code>PlaceName</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p>From this Supermodel&#8217;s <a href="#_backbone_model">Backbone Model</a></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Specialised forms of <code>Feature</code> are used, such as <code>AddressableObject</code>, <code>Parcel</code> and so on. A <code>Geocode</code> is a specialised form of a <code>Geometry</code>.</p>
-</div>
-<div class="paragraph">
-<p>OWL models visualisation is by diagrams that are similar to UML diagrams and use elements from the following key.</p>
-</div>
-<div id="fig-key" class="imageblock">
+<div class="imageblock right">
 <div class="content">
-<img src="images/key.png" alt="key">
+<a class="image" href="images/geosparql-overview.svg"><img src="images/geosparql-overview.svg" alt="geosparql overview" width="500"></a>
 </div>
-<div class="title">Figure 1. Key for OWL diagram figures</div>
+<div class="title">Figure 1. <a href="#GEO">GeoSPARQL</a> overview</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_integrative_models"><a class="anchor" href="#_integrative_models"></a>2.2. Integrative Models</h3>
+<div class="paragraph">
+<p>An <a href="#IM">Integrative Model</a> is a main model that all the <a href="#_component_models">Component Models</a> within a <a href="#SM">Supermodel</a> context implement and extend for their specialised purposes. Supermodels always have one or mode of these.</p>
 </div>
 <div class="paragraph">
-<p>OWL modelling and the RDF data that is made according to it make extensive use of namespaces which are globally-unique names based on Internet web addresses. The following namespaces are used in this document:</p>
+<p>In this Supermodel, the two Integrative Models are:</p>
 </div>
-<table class="tableblock frame-all grid-all stripes-even stretch">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 50%;">
-<col style="width: 40%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Prefix</th>
-<th class="tableblock halign-left valign-top">Namespace</th>
-<th class="tableblock halign-left valign-top">Note</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bb</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/qsi-supermodel/backbone/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The namespace for this Supermodel&#8217;s Backbone Model</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cad</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>https://linked.data.gov.au/def/qsi-supermodel/cadastre/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The namespace for this Supermodel&#8217;s Cadastre Component Model</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ex</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://example.com/</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">An example namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>geo</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://www.opengis.net/ont/geosparql#</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The GeoSAPRQL Ontology&#8217;s namespace</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rdfs</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>http://www.w3.org/2000/01/rdf-schema#</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The namespace of the fundamental RDF Schema model used for OWL mododelling</p></td>
-</tr>
-</tbody>
-</table>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#GEO">GeoSPARQL</a> - an international Semantic Web model standard for spatial data</p>
+</li>
+<li>
+<p><a href="#CN">Compound Naming Model</a> - an Australian model for sophisticated object naming</p>
+</li>
+<li>
+<p><a href="#SDO">schema.org</a> - a general-purpose Semantic Web model</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>In its definion section below, <a href="#FeatureLabel">Feature Label</a> is indicated as beeing authoritifely identified with the prefixed IRI (web identifier) <code>bb:FeatureLabel</code> which, expanded using the table above is <code><a href="https://linked.data.gov.au/def/qsi-supermodel/backbone/FeatureLabel" class="bare">https://linked.data.gov.au/def/qsi-supermodel/backbone/FeatureLabel</a></code> which can be clicked on to retieve it&#8217;s formal definition.</p>
+<p>GeoSPARQL is used for the fundamental representation of spatial objects, for example in the <a href="#CAD">Cadastre Model</a>, a <code>Parcel</code> is a GeoSPARQL spatial <code>Feature</code>, as is an <code>Addressable Object</code> in the <a href="#ADDR">Address Model</a>.</p>
+</div>
+<div class="imageblock right">
+<div class="content">
+<a class="image" href="images/cn-overview.png"><img src="images/cn-overview.svg" alt="cn overview" width="200"></a>
+</div>
+<div class="title">Figure 2. <a href="#CN">CN</a> overview</div>
+</div>
+<div class="paragraph">
+<p>The <a href="#CN">Compound Naming Model</a> is used to represent names for things that are made of many parts, including other names. The Address Model&#8217;s main class of <code>Address</code> is a specialised form of the Compound Naming Model&#8217;s <code>Compound Name</code>, as is the <a href="#GN">Geographical Naming Model</a>'s <code>Geographical Name</code>.</p>
+</div>
+<div class="paragraph">
+<p><a href="#SDO">schema.org</a> is used to provide common relationships between things such as <code>has part</code> - something being part of another thing.</p>
+</div>
+<div class="paragraph">
+<p>Since all the <a href="#CN">Component Models</a> reuse GeoSPARQL&#8217;s <code>Feature</code>, Compound Naming&#8217;s <code>Compound Name</code> and schema.org relations, the Component Models' specialised information is known to be patterned according to these models and thus certain assumptions about them can be made before even looking in to their specifics. For example, we can assume, correctly, that all spatial objects in all Component Models are linked to geometry representations of them via a <code>has geometry</code> relation (or specialised version thereof) and that all geometries are available in Well-Known Text <a href="#WKT">Well-Known Text</a> form, given that i a requirement for GeoSPARQL Geometry objects.</p>
+</div>
+<div class="imageblock right">
+<div class="content">
+<img src="images/sdo-logo.png" alt="sdo logo" width="200">
+</div>
+<div class="title">Figure 3. <a href="#SDO">schema.org</a> logo</div>
+</div>
+<div class="paragraph">
+<p>The following figure provides an overview of the main elements of the Integrative Models in this Supermodel.</p>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<a class="image" href="images/ims-overview.svg"><img src="images/ims-overview.svg" alt="ims overview" width="500"></a>
+</div>
+<div class="title">Figure 4. <a href="#IM">IMs</a> overview</div>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>EXAMPLE: Yundah</strong></p>
+</div>
+<div class="paragraph">
+<p>Here is an example of a real Queensland address, <em>72 Yundah St, Shorncliffe</em>, using Address, Cadastre &amp; Geographical Names data, presented according to the elements in the Integrative Model overview figure, above.</p>
+</div>
+<div class="imageblock center text-center">
+<div class="content">
+<a class="image" href="images/eg-yundah.svg"><img src="images/eg-yundah.svg" alt="eg yundah" width="400"></a>
+</div>
+</div>
+<div class="paragraph">
+<p>A complete Address has much more information than this, such as Geocodes and Lifecycle stages, but this example shows the Address / Parcel main link between the Address Model and Cadastre Model.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_definitions"><a class="anchor" href="#_definitions"></a>2.3. Definitions</h3>
+<div class="paragraph">
+<p>Here is a list of terms and acronyms used in this document.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">Background Model</dt>
+<dd>
+<p>A role within a Supermodel for low level or generic models that some, but not necessarily all, of the <a href="#_component_models">Component Models</a> and the <a href="#IM">Integrative Model</a> reuse and extend.</p>
+</dd>
+<dt class="hdlist1">Component Model</dt>
+<dd>
+<p>A role within a Supermodel for the models of individual datasets within the set aiming for interoperability. Component Models must reuse and extend the <a href="#IM">Integrative Model</a>.</p>
+</dd>
+<dt class="hdlist1">Compound Name</dt>
+<dd>
+<p>The class of objects for "a literal value, or objects that can be interpreted as literal values, that describe or name a Feature", according to the <a href="#CN">Compound Naming Model</a></p>
+</dd>
+<dt class="hdlist1">Feature</dt>
+<dd>
+<p>The class of object for "Anything spatial (being or having a shape, position or an extent)", according to <a href="#GEO">GeoSPARQL</a></p>
+</dd>
+<dt class="hdlist1">Geometry</dt>
+<dd>
+<p>The class of object for "A coherent set of direct positions in space", according to <a href="#GEO">GeoSPARQL</a></p>
+</dd>
+<dt class="hdlist1"><a id="IM"></a> Integrative Model</dt>
+<dd>
+<p>A role within a Supermodel for models reused and extended by <a href="#_component_models">Component Models</a>. Use of these models ensures general modelling patterns are present in all Component Models.</p>
+</dd>
+<dt class="hdlist1"><a id="profile"></a> profile</dt>
+<dd>
+<p>"A specification that constrains, extends, combines, or provides guidance or explanation about the usage of other specifications" according to <a href="#PROF">The Profiles Vocabulary</a>.</p>
+</dd>
+<dt class="hdlist1"><a id="SM"></a> Supermodel</dt>
+<dd>
+<p>A set of integrated data models used with defined roles used to make multiple datasets interoperable.</p>
+</dd>
+<dt class="hdlist1"><a id="UML"></a> Unified Modelling Language, UML</dt>
+<dd>
+<p>A general-purpose visual modeling language that is intended to provide a standard way to visualize the design of a system. <a href="https://en.wikipedia.org/wiki/Unified_Modeling_Language">[ref</a>]</p>
+</dd>
+<dt class="hdlist1">Vocabulary</dt>
+<dd>
+<p>A controlled set of defined terms. Within Supermodel contexts, all vocabularies reuse and extend the <a href="#SKOS">SKOS</a> vocabulary model.</p>
+</dd>
+<dt class="hdlist1">Web Ontology Language, OWL</dt>
+<dd>
+<p>A widely used international standard modelling language that allows for machine-readability of models.</p>
+</dd>
+<dt class="hdlist1"><a id="WKT"></a> Well-Known Text</dt>
+<dd>
+<p>A text markup language for representing vector geometry objects. WKT was defined in <a href="#ISO19125-1">ISO19125-1</a> and extended by <a href="#GEO">GeoSPARQL</a> to allow for Spatial Reference Systems.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_doc_structure"><a class="anchor" href="#_doc_structure"></a>2.4. Doc Structure</h3>
+<div class="paragraph">
+<p>The structure of this document and the roles of each part are as follows:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><a href="#_metadata">Metadata</a> - Metadata about this document</p>
+</li>
+<li>
+<p><a href="#_introduction">Introduction</a> - An introduction to the Supermodel concept and this particular Supermodel</p>
+</li>
+<li>
+<p><a href="#_models">Models</a> - The specific models within this Supermodel<br></p>
+</li>
+</ol>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#PIDs">Annex A: PID Rules</a> - Rules for the Persistent Identifiers (PIDs) to be used by data wishing to conform to this Supermodel</p>
+</li>
+<li>
+<p><a href="#Validation">Annex B: Validation</a> - How to validate data wishing to conform to this Supermodel</p>
+</li>
+<li>
+<p><a href="#_references">References</a> - All the important reference standards and models for this</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -674,7 +755,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="images/models.png" alt="models">
 </div>
-<div class="title">Figure 2. An informal diagram the part Models of this Supermodel. The Administrative Areas model is not yet defined.</div>
+<div class="title">Figure 5. An informal diagram the part Models of this Supermodel. The Administrative Areas model is not yet defined.</div>
 </div>
 <div class="paragraph">
 <p>For technical use, the machine-readable versions of the Backbone Model and the Component Models can be combined and used as the total Supermodel.</p>
@@ -689,10 +770,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="content">
 <img src="images/backbone.png" alt="backbone">
 </div>
-<div class="title">Figure 3. An OWL diagram of the Backbone Model overview. Uncertain objects are shown in light red.</div>
+<div class="title">Figure 6. An OWL diagram of the Backbone Model overview. Uncertain objects are shown in light red.</div>
 </div>
 <div class="paragraph">
-<p>Figure 2 indicates two main conceptual domains (the yellow and blue) centered on <code>Feature Labels</code> (defined here) and <code>geo:Feature</code> s which are "Anything spatial (being or having a shape, position or an extent)" <a href="#GEO">[GEO]</a>. Feature Labels are any form of identifying information assigned to a Feature <a href="#xxx">[xxx]</a>.</p>
+<p>Figure 2 indicates two main conceptual domains (the yellow and blue) centered on <code>Feature Labels</code> (defined here) and <code>geo:Feature</code> s which are "Anything spatial (being or having a shape, position or an extent)" <a href="#GEO">[GeoSPARQL]</a>. Feature Labels are any form of identifying information assigned to a Feature <a href="#xxx">[xxx]</a>.</p>
 </div>
 <div class="paragraph">
 <p>The class hierharchy expressed in this Backbone Model (with sub class of arrows) indicates that:</p>
@@ -888,39 +969,81 @@ ex:feature-x
 </div>
 </div>
 <div class="sect1">
-<h2 id="_annex_a_validators"><a class="anchor" href="#_annex_a_validators"></a>Annex A: Validators</h2>
+<h2 id="PIDs"><a class="anchor" href="#PIDs"></a>Annex A: PID Rules</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Supermodel combined validators for the Backbone Model and each of the Component Models to make a single Supermodel Validator. The technical artifact for this is online at:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="https://linked.data.gov.au/def/qsi-supermodel/validator" class="bare">https://linked.data.gov.au/def/qsi-supermodel/validator</a></p>
-</li>
-</ul>
+<p><mark>Coming Soon</mark></p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_bibliography"><a class="anchor" href="#_bibliography"></a>Bibliography</h2>
+<h2 id="Validation"><a class="anchor" href="#Validation"></a>Annex B: Validation</h2>
 <div class="sectionbody">
-<div class="ulist">
-<ul>
-<li>
-<p><a id="GEO"></a> [GEO] Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data</em>, OGC® Implementation Specification (2022). <a href="https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html" class="bare">https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html</a></p>
-</li>
-<li>
-<p><a id="OWL"></a> [OWL] World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
-</li>
-</ul>
+<div class="paragraph">
+<p><mark>Coming Soon</mark></p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_references"><a class="anchor" href="#_references"></a>References</h2>
+<div class="sectionbody">
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="ADDR"></a> [Address Model]</dt>
+<dd>
+<p>Intergovernmental Committee on Surveying &amp; Mapping. <em>Address Model</em>, 2024. Semantic Web model. <a href="https://linked.data.gov.au/def/addr" class="bare">https://linked.data.gov.au/def/addr</a></p>
+</dd>
+<dt class="hdlist1"><a id="CAD"></a> [Cadastre Model]</dt>
+<dd>
+<p>Intergovernmental Committee on Surveying &amp; Mapping. <em>Cadastre Model</em>, 2024. Proposed Semantic Web model. <a href="https://linked.data.gov.au/def/cad" class="bare">https://linked.data.gov.au/def/cad</a></p>
+</dd>
+<dt class="hdlist1"><a id="CN"></a> [Compound Naming Model]</dt>
+<dd>
+<p>Australian Government Linked Data Working Group, <em>Compound Naming Model</em> 2023. Semantic Web model. <a href="https://linked.data.gov.au/def/cn" class="bare">https://linked.data.gov.au/def/cn</a></p>
+</dd>
+<dt class="hdlist1"><a id="GEO"></a> [GeoSPARQL]</dt>
+<dd>
+<p>Open Geospatial Consortium, <em>OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1</em>, OGC® Implementation Specification (2024). <a href="http://www.opengis.net/doc/IS/geosparql/1.1" class="bare">http://www.opengis.net/doc/IS/geosparql/1.1</a></p>
+</dd>
+</dl>
+</div>
+<div class="paragraph">
+<p><a id="GN"></a> [Cadastre Model] Intergovernmental Committee on Surveying &amp; Mapping. <em>Geographical Names Model</em>, 2024. Proposed Semantic Web model. <a href="https://linked.data.gov.au/def/gn" class="bare">https://linked.data.gov.au/def/gn</a></p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1"><a id="ISO19125-1"></a> [ISO19125-1]</dt>
+<dd>
+<p>International Organization for Standardization, <em>ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture</em>, 2004. <a href="https://www.iso.org/standard/40114.html" class="bare">https://www.iso.org/standard/40114.html</a></p>
+</dd>
+<dt class="hdlist1"><a id="OWL"></a> [OWL]</dt>
+<dd>
+<p>World Wide Web Consortium, <em>OWL 2 Web Ontology Language Document Overview (Second Edition)</em>, W3C Recommendation (11 December 2012). <a href="https://www.w3.org/TR/owl2-overview/" class="bare">https://www.w3.org/TR/owl2-overview/</a></p>
+</dd>
+<dt class="hdlist1"><a id="PROF"></a> [Profiles Vocabulary]</dt>
+<dd>
+<p>World Wide Web Consortium, <em>The Profiles Vocabulary</em>, W3C Working Group Note (18 December 2019). <a href="https://www.w3.org/TR/dx-prof/" class="bare">https://www.w3.org/TR/dx-prof/</a></p>
+</dd>
+<dt class="hdlist1"><a id="ROAD"></a> [Road Names Model]</dt>
+<dd>
+<p>Intergovernmental Committee on Surveying &amp; Mapping. <em>Road Names Model</em>, 2024. Proposed Semantic Web data model. <a href="https://linked.data.gov.au/def/roads" class="bare">https://linked.data.gov.au/def/roads</a></p>
+</dd>
+<dt class="hdlist1"><a id="SDO"></a> [schema.org]</dt>
+<dd>
+<p>W3C Schema.org Community Group, <em>schema.org</em> 2015. Semantic Web model. <a href="https://schema.org" class="bare">https://schema.org</a></p>
+</dd>
+<dt class="hdlist1"><a id="SKOS"></a> [SKOS]</dt>
+<dd>
+<p>World Wide Web Consortium, <em>SKOS Simple Knowledge Organization System</em> 18 August 2009. Semantic Web model. <a href="https://www.w3.org/TR/skos-reference/" class="bare">https://www.w3.org/TR/skos-reference/</a></p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2023-04-18 22:35:47 UTC
+Last updated 2025-02-21 07:14:34 UTC
 </div>
 </div>
 </body>
