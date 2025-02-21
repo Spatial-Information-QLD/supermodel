@@ -24,6 +24,7 @@ This 'Supermodel' is a set of data models used by https://www.nrmmrrd.qld.gov.au
 |**Creator** | https://kurrawong.ai[KurrawongAI], for QSI
 |**Publisher** | https://linked.data.gov.au/org/qsi[Queensland Spatial Information]
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
+|**Code Repository** | https://github.com/Spatial-Information-QLD/supermodel[https://github.com/]
 |===
 
 == Introduction
