@@ -165,7 +165,7 @@ The models within this Supermodel and the roles they play are listed in the tabl
 
 The machine-readable form of this Supermodel is an <<OWL, OWL>> model, formulated according to the <<PROF, Profiles Vocabulary>> and is online at:
 
-* **http://linked.data.gov.au/def/qsi-supermodel.ttl**
+* **https://linked.data.gov.au/def/qsi-supermodel.ttl**
 
 
 
@@ -296,7 +296,7 @@ PIDs within this Supermodel are <<IRI, IRIs>> which means they are typically rep
 
 e.g. - the PID for this Supermodel:
 
-`+http://linked.data.gov.au/def/qsi-supermodel+`
+`+https://linked.data.gov.au/def/qsi-supermodel+`
 
 where the **SCHEME** is the `HTTPS` protocol, the **AUTHORITY** is `linked.data.gov.au` and the **PATH** is `def/qsi-supermodel`.
 
@@ -304,7 +304,7 @@ IRIs in this form should be quoted in full wherever possible, i.e. within datase
 
 This IRI for this Supermodel does indeed resolve as a web address, to this document:
 
-* http://linked.data.gov.au/def/qsi-supermodel
+* https://linked.data.gov.au/def/qsi-supermodel
 
 === Authority
 
@@ -337,7 +337,7 @@ For each system identified in the <<Known Systems>> table below, a System PID Na
 
 `IRI  PID :== System PID Namespace / "dataset" / Object Identifier`
 
-For the Queensland Addressing & Location Information (QALI) system, the System Identifier is `qali` and the System PID Namespace is `http://linked.data.gov.au/dataset/qld-addr`, thus, for the Address with Object Identifier `address/605bf8e7-315a-562b-af4c-16a870732daf`, a class marker of "address" and a UUID, the complete IRI PID is:
+For the Queensland Addressing & Location Information (QALI) system, the System Identifier is `qali` and the System PID Namespace is `https://linked.data.gov.au/dataset/qld-addr`, thus, for the Address with Object Identifier `address/605bf8e7-315a-562b-af4c-16a870732daf`, a class marker of "address" and a UUID, the complete IRI PID is:
 
 `https://linked.data.gov.au/dataset/qld-addr/address/605bf8e7-315a-562b-af4c-16a870732daf`
 
@@ -376,19 +376,19 @@ Models and vocabularies within this Supermodel, and the Supermodel itself, are a
 |===
 | ID | Name | PID Namespace
 
-| `qsi-supermodel` | The QSI Supermodel | `http://linked.data.gov.au/def/qsi-supermodel`
-| `addr` | Address Model | `http://linked.data.gov.au/def/addr`
-| `cad` | Cadastral Model | `http://linked.data.gov.au/def/cad`
-| `csdm` | Cadastral Survey Data Model | `http://linked.data.gov.au/def/csdm`
-| `gn` | Geographical Model | `http://linked.data.gov.au/def/gn`
-| `roads` | Road Names Model | `http://linked.data.gov.au/def/roads`
+| `qsi-supermodel` | The QSI Supermodel | `https://linked.data.gov.au/def/qsi-supermodel`
+| `addr` | Address Model | `https://linked.data.gov.au/def/addr`
+| `cad` | Cadastral Model | `https://linked.data.gov.au/def/cad`
+| `csdm` | Cadastral Survey Data Model | `https://linked.data.gov.au/def/csdm`
+| `gn` | Geographical Model | `https://linked.data.gov.au/def/gn`
+| `roads` | Road Names Model | `https://linked.data.gov.au/def/roads`
 
 3+| **ICSM Address Vocabularies**
-| `address-classes` | Address Classes | `http://linked.data.gov.au/def/address-classes`
-| `subaddress-types` | Address Types | `http://linked.data.gov.au/def/subaddress-types`
-| `address-status-type` | Address Status Types | `http://linked.data.gov.au/def/address-status-type`
-| `address-level-types` | Address Level Types | `http://linked.data.gov.au/def/address-level-types`
-| `geocode-types` | Geocode Types | `http://linked.data.gov.au/def/geocode-types`
+| `address-classes` | Address Classes | `https://linked.data.gov.au/def/address-classes`
+| `subaddress-types` | Address Types | `https://linked.data.gov.au/def/subaddress-types`
+| `address-status-type` | Address Status Types | `https://linked.data.gov.au/def/address-status-type`
+| `address-level-types` | Address Level Types | `https://linked.data.gov.au/def/address-level-types`
+| `geocode-types` | Geocode Types | `https://linked.data.gov.au/def/geocode-types`
 
 |===
 
@@ -403,13 +403,13 @@ NOTE:: It is not necessary for systems to use unique PID Namespaces as long as u
 |===
 | ID | Name | PID Namespace | Class Markers
 
-| `qali` | Queensland Addressing & Location Information (QALI) | `http://linked.data.gov.au/dataset/qld-addr` a|
+| `qali` | Queensland Addressing & Location Information (QALI) | `https://linked.data.gov.au/dataset/qld-addr` a|
 `address`
 `geocode`
 `gn`
 `road-label`
 
-| `sir` | Spatial Information Repository (SIR) | `http://linked.data.gov.au/dataset/qld-cad` a|
+| `sir` | Spatial Information Repository (SIR) | `https://linked.data.gov.au/dataset/qld-cad` a|
 `line`
 `parcel`
 `point`
