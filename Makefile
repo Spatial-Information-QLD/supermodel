@@ -17,7 +17,7 @@ watch:
 
 build:
 	asciidoctor README.adoc -o dist/index.html
-	asciidoctor supermodel.adoc -o dist/supermodel.html
+	asciidoctor document/supermodel.adoc -o dist/supermodel.html
 	asciidoctor placenames/model.adoc -o dist/placenames/index.html
 
 http:

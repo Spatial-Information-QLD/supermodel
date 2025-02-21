@@ -1,0 +1,291 @@
+= Queensland Spatial Information Supermodel
+:favicon: images/logo-qld.svg
+:toc: left
+:toclevels: 3
+:table-stripes: even
+:sectnums:
+:sectids:
+:sectanchors:
+
+image::images/overview.svg[width=700,float="center",align="center"]
+
+This 'Supermodel' is a set of data models used by https://www.nrmmrrd.qld.gov.au/data-mapping[Queensland Spatial Information] to integrate data from formerly separate systems into an interoperable whole.
+
+== Metadata
+
+[width=75%, frame=none, grid=none, cols="1,5"]
+|===
+|**IRI** | https://linked.data.gov.au/def/qsi-supermodel
+|**Title** | QSI Supermodel
+|**Description** | This is an overarching model - a Supermodel - used to integrate multiple, individual, models together for use within a particular scenario.
+|**Created** | 2022-03-13
+|**Modified** | 2025-02-21
+|**Issued** | 0000-00-00
+|**Creator** | https://kurrawong.ai[KurrawongAI], for QSI
+|**Publisher** | https://linked.data.gov.au/org/qsi[Queensland Spatial Information]
+|**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
+|===
+
+== Introduction
+
+Multiple fundamental spatial datasets in Queensland have had system upgrades and been remodelled to modernise their tools and content structure and to align them better with one another. For example, the Address and Place Names data have been moved from old, separate, relational databases into a single modern graph database and cadastral information has had its underlying spatial technology upgraded. The Address, Place (Geographical) Names and Cadastral data models have been updated to either directly use, or to make public correspondences to, the "Background Models" in the overview diagram above.
+
+For all datasets in all systems, their codelists, lookup values and feature types have been updated into stand-alone controlled vocabularies, many of which are standardised with other ANZ jurisdictions and published by https://www.icsm.gov.au[ICSM].
+
+By using/corresponding to Background Models and using standard terms from Vocabularies, the "Component Models" for each major QSI dataset share common structural patterns and values such that they can be cross-queried and used together in many ways. For example, you can query the combined system for an Address and get any Geographical Names that are part of it and their spatial extents, as well as the Property grouping of cadastral parcels it is an address for and their spatial extents.
+
+In addition to component system upgrades and model upgrades, a number of new web services and data platforms have also been implemented by QSI to make using these now harmonised models together much easier at a technical level: single access points, etc.
+
+image::images/logo-owl.png[float="right"]
+
+=== Modelling System
+
+All the models in this <<SM>> set are implemented using the <<OWL, _Web Ontology Language_ OWL>>. OWL is a very widely used, standardised, formal modelling language. Unlike <<UML, UML>> models, OWL models natively have machine-readable forms allowing data made according to them to be automatically validated and processed into databases.
+
+The Supermodel's constituent models are related to one another using <<PROF, _The Profiles Vocabulary_ PROF>> which provides properties to indicate when and how one model reuses - "<<profile, profiles>>" - another. PROF also links models to validators created to test data claiming conformance to them.
+
+
+[link=images/geosparql-overview.svg]
+[title="<<GEO, GeoSPARQL>> overview"]
+image::images/geosparql-overview.svg[float="right",width=500]
+
+=== Integrative Models
+
+An <<IM>> is a main model that all the <<Component Models>> within a <<SM>> context implement and extend for their specialised purposes. Supermodels always have one or mode of these.
+
+In this Supermodel, the two Integrative Models are:
+
+* <<GEO, GeoSPARQL>> - an international Semantic Web model standard for spatial data
+* <<CN, Compound Naming Model>> - an Australian model for sophisticated object naming
+* <<SDO, schema.org>> - a general-purpose Semantic Web model
+
+GeoSPARQL is used for the fundamental representation of spatial objects, for example in the <<CAD, Cadastre Model>>, a `Parcel` is a GeoSPARQL spatial `Feature`, as is an `Addressable Object` in the <<ADDR, Address Model>>.
+
+[link=images/cn-overview.png]
+[title="<<CN, CN>> overview"]
+image::images/cn-overview.svg[float="right",width=200]
+
+The <<CN, Compound Naming Model>> is used to represent names for things that are made of many parts, including other names. The Address Model's main class of `Address` is a specialised form of the Compound Naming Model's `Compound Name`, as is the <<GN, Geographical Naming Model>>'s `Geographical Name`.
+
+<<SDO, schema.org>> is used to provide common relationships between things such as `has part` - something being part of another thing.
+
+Since all the <<CN, Component Models>> reuse GeoSPARQL's `Feature`, Compound Naming's `Compound Name` and schema.org relations, the Component Models' specialised information is known to be patterned according to these models and thus certain assumptions about them can be made before even looking in to their specifics. For example, we can assume, correctly, that all spatial objects in all Component Models are linked to geometry representations of them via a `has geometry` relation (or specialised version thereof) and that all geometries are available in Well-Known Text <<WKT>> form, given that i a requirement for GeoSPARQL Geometry objects.
+
+[title="<<SDO, schema.org>> logo"]
+image::images/sdo-logo.png[float="right",width=200]
+
+The following figure provides an overview of the main elements of the Integrative Models in this Supermodel.
+
+[link=images/ims-overview.svg]
+[title="<<IM, IMs>> overview"]
+image::images/ims-overview.svg[,float="center",align="center",width=500]
+
+====
+**EXAMPLE: Yundah**
+
+Here is an example of a real Queensland address, _72 Yundah St, Shorncliffe_, using Address, Cadastre & Geographical Names data, presented according to the elements in the Integrative Model overview figure, above.
+
+[link=images/eg-yundah.svg]
+image::images/eg-yundah.svg[,float="center",align="center",width=400]
+
+A complete Address has much more information than this, such as Geocodes and Lifecycle stages, but this example shows the Address / Parcel main link between the Address Model and Cadastre Model.
+====
+
+
+=== Definitions
+
+Here is a list of terms and acronyms used in this document.
+
+Background Model:: A role within a Supermodel for low level or generic models that some, but not necessarily all, of the <<Component Models>> and the <<IM>> reuse and extend.
+
+Component Model:: A role within a Supermodel for the models of individual datasets within the set aiming for interoperability. Component Models must reuse and extend the <<IM>>.
+
+Compound Name:: The class of objects for "a literal value, or objects that can be interpreted as literal values, that describe or name a Feature", according to the <<CN, Compound Naming Model>>
+
+Feature:: The class of object for "Anything spatial (being or having a shape, position or an extent)", according to <<GEO, GeoSPARQL>>
+
+Geometry:: The class of object for "A coherent set of direct positions in space", according to <<GEO, GeoSPARQL>>
+
+[[IM]] Integrative Model:: A role within a Supermodel for models reused and extended by <<Component Models>>. Use of these models ensures general modelling patterns are present in all Component Models.
+
+[[profile]] profile:: "A specification that constrains, extends, combines, or provides guidance or explanation about the usage of other specifications" according to <<PROF, The Profiles Vocabulary>>.
+
+[[SM]] Supermodel:: A set of integrated data models used with defined roles used to make multiple datasets interoperable.
+
+[[UML]] Unified Modelling Language, UML:: A general-purpose visual modeling language that is intended to provide a standard way to visualize the design of a system. https://en.wikipedia.org/wiki/Unified_Modeling_Language[[ref]]
+
+Vocabulary:: A controlled set of defined terms. Within Supermodel contexts, all vocabularies reuse and extend the <<SKOS, SKOS>> vocabulary model.
+
+Web Ontology Language, OWL:: A widely used international standard modelling language that allows for machine-readability of models.
+
+[[WKT]] Well-Known Text:: A text markup language for representing vector geometry objects. WKT was defined in <<ISO19125-1, ISO19125-1>> and extended by <<GEO, GeoSPARQL>> to allow for Spatial Reference Systems.
+
+=== Doc Structure
+
+The structure of this document and the roles of each part are as follows:
+
+1. <<Metadata>> - Metadata about this document
+2. <<Introduction>> - An introduction to the Supermodel concept and this particular Supermodel
+3. <<Models>> - The specific models within this Supermodel +
+
+//-
+
+* <<PIDs>> - Rules for the Persistent Identifiers (PIDs) to be used by data wishing to conform to this Supermodel
+* <<Validation>> - How to validate data wishing to conform to this Supermodel
+* <<References>> - All the important reference standards and models for this
+
+== Models
+
+=== Supermodel
+
+This Supermodel is the overall system that implements a <<Backbone Model>> which contains central elements from the various <<Component Models>> and some additional modelling "glue" to allow it to act as the integrative model between them. The Backbone Model, Component Models, model validators and this documentation together make the Supermodel.
+
+The following figure lists the various part models of this Supermodel.
+
+[id=fig-models]
+.An informal diagram the part Models of this Supermodel. The Administrative Areas model is not yet defined.
+image::images/models.png[]
+
+For technical use, the machine-readable versions of the Backbone Model and the Component Models can be combined and used as the total Supermodel.
+
+=== Backbone Model
+
+The Backbone Model for this Queensland Spatial Information scenario overviewed in <<#fig-backbone, Figure 3>>. The elements of the Backbone Model are described next and the formal characterisation of the model in OWL is given in the machein-readable file https://spatial-information-qld.github.io/supermodel/backbone/model.ttl[backbone.ttl].
+
+[id=fig-backbone]
+.An OWL diagram of the Backbone Model overview. Uncertain objects are shown in light red.
+image::images/backbone.png[]
+
+Figure 2 indicates two main conceptual domains (the yellow and blue) centered on `Feature Labels` (defined here) and `geo:Feature` s which are "Anything spatial (being or having a shape, position or an extent)" <<GEO>>. Feature Labels are any form of identifying information assigned to a Feature <<xxx>>.
+
+The class hierharchy expressed in this Backbone Model (with sub class of arrows) indicates that:
+
+* `Address`, `AdministrativeArea` and perhaps `Title`` are all specialised forms of `FeatureLabel`
+* `PlaceName` is a form of `Address` (a very simple one!)
+* `Places` are a specialised form of `AddressableObject` and `AddressableObject` and `Parcel`, and others, are speciali types of `geo:Feature`
+
+The various Component Models (next) use these classes of object and imlplement many more specilised forms of them.
+
+==== Classes
+
+This Backbone Model only defines one class of object not already defined in the various Component models: `FeatureLabel`.
+
+[[FeatureLabel]]
+===== Feature Label
+
+[cols="1,4"]
+|===
+| Property | Value
+
+| IRI | `bb:FeatureLabel`
+| Preferred Label | Feature Label
+| Definition | An annotation applied to a `Feature`. Specialised kinds of FeatureLabel are expected to be used, such as `Address` or `PlaceName`
+| Is Defined By | https://linked.data.gov.au/def/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
+| Provenance | Derived from <<ISO19160-1>>'s `AddressLifecycle` class
+| Expected Properties | <<isLabelFor, is label for>>
+| Example 
+a| [source,turtle]
+----
+# The Label "Mount Doom" is applied to Feature X
+ex:fl-01
+    a bb:FeatureLabel ;
+    rdfs:label "Mount Doom" ;
+    bb:isLabelFor ex:feature-x ;
+.
+
+ex:feature-x
+    a geo:Feature ;
+    ex:category ex:mountain ;
+.
+----
+|===
+
+==== Properties
+
+This Backbone Model only defines one property not already defined in the various Component models: `isLabelFor`.
+
+===== is label for
+
+[cols="1,4"]
+|===
+| Property | Value
+
+| IRI | `bb:isLabelFor`
+| Preferred Label | is label for
+| Definition | Indicates an an object that a <<FeatureLabel, `FeatureLabel`>> is an annotation for
+| Is Defined By | https://linked.data.gov.au/def/qsi-supermodel/backbone[SQI Supermodel Backbone Model]
+| Sub property of | `rdfs:label`
+| Domain | <<FeatureLabel, `FeatureLabel`>>
+| Range | `geo:Feature`
+| Example | _see the example for <<FeatureLabel>>_
+|===
+
+=== Component Models
+
+==== ANZ National Address Model
+
+The Address Model is a model that has been defined externally to this Supermodel.
+
+It is available online at:
+
+**https://linked.data.gov.au/def/addr**
+
+==== Place Names Model
+
+The Place Names Model is a model that has been defined externally to this Supermodel.
+
+It is available online at:
+
+**https://linked.data.gov.au/def/placenames**
+
+==== Roads Model
+
+The Roads Model is a model that has been defined externally to this Supermodel.
+
+It is available online at:
+
+**https://linked.data.gov.au/def/roads**
+
+==== Cadastre Model
+
+The Cadastre Model is a model that has been defined externally to this Supermodel.
+
+It is available online at:
+
+**https://linked.data.gov.au/def/cad**
+
+:!sectnums:
+
+[[PIDs]]
+== Annex A: PID Rules
+
+#Coming Soon#
+
+[[Validation]]
+== Annex B: Validation
+
+#Coming Soon#
+
+== References
+
+[[ADDR]] [Address Model]:: Intergovernmental Committee on Surveying & Mapping. _Address Model_, 2024. Semantic Web model. https://linked.data.gov.au/def/addr
+
+[[CAD]] [Cadastre Model]:: Intergovernmental Committee on Surveying & Mapping. _Cadastre Model_, 2024. Proposed Semantic Web model. https://linked.data.gov.au/def/cad
+
+[[CN]] [Compound Naming Model]:: Australian Government Linked Data Working Group, _Compound Naming Model_ 2023. Semantic Web model. https://linked.data.gov.au/def/cn
+
+[[GEO]] [GeoSPARQL]:: Open Geospatial Consortium, _OGC GeoSPARQL - A Geographic Query Language for RDF Data, Version 1.1_, OGC® Implementation Specification (2024). http://www.opengis.net/doc/IS/geosparql/1.1
+
+[[GN]] [Cadastre Model] Intergovernmental Committee on Surveying & Mapping. _Geographical Names Model_, 2024. Proposed Semantic Web model. https://linked.data.gov.au/def/gn
+
+[[ISO19125-1]] [ISO19125-1]:: International Organization for Standardization, _ISO 19125-1: Geographic information — Simple Feature Access - Part 1: Common Architecture_, 2004. https://www.iso.org/standard/40114.html
+
+[[OWL]] [OWL]:: World Wide Web Consortium, _OWL 2 Web Ontology Language Document Overview (Second Edition)_, W3C Recommendation (11 December 2012). https://www.w3.org/TR/owl2-overview/
+
+[[PROF]] [Profiles Vocabulary]:: World Wide Web Consortium, _The Profiles Vocabulary_, W3C Working Group Note (18 December 2019). https://www.w3.org/TR/dx-prof/
+
+[[ROAD]] [Road Names Model]:: Intergovernmental Committee on Surveying & Mapping. _Road Names Model_, 2024. Proposed Semantic Web data model. https://linked.data.gov.au/def/roads
+
+[[SDO]] [schema.org]:: W3C Schema.org Community Group, _schema.org_ 2015. Semantic Web model. https://schema.org
+
+[[SKOS]] [SKOS]:: World Wide Web Consortium, _SKOS Simple Knowledge Organization System_ 18 August 2009. Semantic Web model. https://www.w3.org/TR/skos-reference/
