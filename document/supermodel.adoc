@@ -372,7 +372,7 @@ The following kinds of PID are to be allocated to data objects in this Supermode
 
 Models and vocabularies within this Supermodel, and the Supermodel itself, are assigned _high-level definitional object_ PIDs as per the table below and allocate _low-level definitional object_ PIDs within their namespaces.
 
-[cols="1,2,4"]
+[cols="1,2,3"]
 |===
 | ID | Name | PID Namespace
 
@@ -389,37 +389,35 @@ Models and vocabularies within this Supermodel, and the Supermodel itself, are a
 | `address-status-type` | Address Status Types | `https://linked.data.gov.au/def/address-status-type`
 | `address-level-types` | Address Level Types | `https://linked.data.gov.au/def/address-level-types`
 | `geocode-types` | Geocode Types | `https://linked.data.gov.au/def/geocode-types`
-
 |===
-
 
 === Known Systems
 
 The following are all the known systems creating identifiers for data within the scope of this Supermodel as well as known class markers used by them. The systems use _high-level data object_ PIDs for their major datasets and _low-level data object_ PIDs for each element of those datasets.
 
-NOTE:: It is not necessary for systems to use unique PID Namespaces as long as unique Object Identifier creation can be guaranteed across all systems sharing a PID Namespace. Systems may also be allocated more than one PID Namespace if, for example, the are responsible for more than one distinct conceptual dataset.
+NOTE:: It is not necessary for systems to use unique PID Namespaces as long as unique Object Identifier creation can be guaranteed across all systems sharing a PID Namespace. Systems may also be allocated more than one PID Namespace if, for example, they are responsible for more than one distinct conceptual dataset.
 
 [cols="1,2,4,2"]
 |===
 | ID | Name | PID Namespace | Class Markers
 
 | `qali` | Queensland Addressing & Location Information (QALI) | `https://linked.data.gov.au/dataset/qld-addr` a|
-`address`
-`geocode`
-`gn`
-`road-label`
+`address` +
+`geocode` +
+`gn` +
+`road-label` +
 
 | `sir` | Spatial Information Repository (SIR) | `https://linked.data.gov.au/dataset/qld-cad` a|
-`line`
-`parcel`
-`point`
-`property`
-`record`
+`line` +
+`parcel` +
+`point` +
+`property` +
+`record` +
 |===
 
 #Unresolved Questions#
 
-* where to Road, not Road Name, IDs come from?
+* where do Road, not Road Name, IDs come from?
 * where do Property (Parcel Aggregate) IDs come from?
 
 === PID representation
