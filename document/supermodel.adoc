@@ -19,12 +19,12 @@ This 'Supermodel' is a set of data models used by https://www.nrmmrrd.qld.gov.au
 |**Title** | QSI Supermodel
 |**Description** | This is an overarching model - a Supermodel - used to integrate multiple, individual, models together for use within a particular scenario.
 |**Created** | 2022-03-13
-|**Modified** | 2025-02-21
+|**Modified** | 2026-04-21
 |**Issued** | 0000-00-00
 |**Creator** | https://kurrawong.ai[KurrawongAI], for QSI
 |**Publisher** | https://linked.data.gov.au/org/qsi[Queensland Spatial Information]
 |**License** | https://creativecommons.org/licenses/by/4.0/[Creative Commons Attribution 4.0 International (CC BY 4.0)]
-|**Code Repository** | https://github.com/Spatial-Information-QLD/supermodel[https://github.com/]
+|**Code Repository** | https://github.com/Spatial-Information-QLD/supermodel
 |===
 
 == Introduction
